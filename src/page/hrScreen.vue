@@ -988,12 +988,12 @@ export default {
           type: "category",
           // boundaryGap: false,
           data: [
-            "科创人员",
-            "自研人员",
+            "科创",
+            "自研",
             "政府BU",
             "区分政企",
-            "智慧沃商工程师",
-            "智慧家庭运营团队",
+            "工程师",
+            "家庭运营",
           ],
           axisLabel: {
             show: true,

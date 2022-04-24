@@ -35,7 +35,11 @@
                     <p>全口径:  2008人</p>
                     <div class="stillEmployed">
                         <span>仍在职人数：1280人</span>
-                        <span >保有率 80%</span>
+                        <!-- <span> -->
+                        <div ref="retention" style="width:300px;height:30px;margin:-40px 200px"></div>
+                        
+                        
+                        <!-- <span >保有率 80%</span> -->
                     </div>
                     <div ref="employees" class="changeData"></div>
                 <!-- </el-card> -->
@@ -67,7 +71,8 @@
                     <p>全口径: 2008人</p>
                     <div class="stillEmployed">
                         <span>本年净增：1280人</span>
-                        <span >增幅 5.1%</span>
+                        <div ref="increase" style="width:300px;height:30px;margin:-40px 200px"></div>
+                        <!-- <span >增幅 5.1%</span> -->
                     </div>
                     <div ref="actualNumber" class="changeData"></div>
                 <!-- </el-card> -->
@@ -224,6 +229,8 @@ export default {
         this.contractBar()
         this.actualLine()
         this.resignationBar()
+        this.retentionBar()
+        this.increaseBar()
     },
     methods:  {
         //奇偶行背景色不同 
@@ -238,6 +245,178 @@ export default {
                 return 'success-row';
             }
             return '';
+        },
+        // 保有率分布图
+         retentionBar() {
+            let myChart = this.$echarts.init(this.$refs["retention"]);
+            let option = {
+                    title: {
+                        text: "保有率",
+                        // left: "0px",
+                        y: 'center',
+                        textStyle: {
+                            color: "#02D3E9",
+                            fontSize: "14",
+                            fontWeight: '600',
+                            fontFamily: 'PingFangSC-Semibold',
+                            lineHeight: 15,
+                        },
+                    },
+                     grid: {
+                        left: '25%',
+                        top: '0',
+                        right: '0',
+                        bottom: '0',
+                        containLabel: true,
+                        width : '95%'
+                    },
+                    xAxis: {
+                        type: 'value',
+                        splitLine: {show: false},
+                        axisLabel: {show: false},
+                        axisTick: {show: false},
+                        axisLine: {show: false},
+                    },
+                    yAxis: {
+                        type: 'category',
+                        axisTick: {show: false},
+                        axisLine: {show: false},
+                        axisLabel: {show: false},
+                    },
+                    series: [
+                        {
+                            name: '',
+                            type: 'bar',
+                            barWidth: 18,
+                            data: [50],
+                            label: {
+                                show: true,
+                                // position    : 'middle',
+                                offset: [10,2],
+                                formatter: '{c}{a}%',
+                                color: '#fff',
+                                fontSize: 14
+                            },
+                            itemStyle       : {
+                                normal: {
+                                    // color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    // { offset: 0, color: "#19E3FA " },
+                                    // { offset: 1, color: "#19E3FA " },
+                                    // ]),
+                                    color: "#19E3FA "
+                                },
+                                barBorderRadius: 9,
+                            },
+                            zlevel: 1
+                        },
+                        {
+                            name: '进度条背景',
+                            type: 'bar',
+                            barGap: '-100%',
+                            barWidth: 18,
+                            data: [100],
+                            color: '#114A57',//柱条颜色
+                            itemStyle: {
+                                normal: {
+                                    barBorderRadius: 9,
+                                    borderColor: '#114A57',
+                                }
+                            }
+                            // zlevel: 0
+                        }
+                    ]
+                };
+            // 绘制图表
+            myChart.setOption(option);
+            window.addEventListener("resize", () => {
+                myChart.resize();
+            });
+        },
+        // 增幅
+        increaseBar() {
+            let myChart = this.$echarts.init(this.$refs["increase"]);
+            let option = {
+                    title: {
+                        text: "增幅",
+                        // left: "0px",
+                        y: 'center',
+                        textStyle: {
+                            color: "#02D3E9",
+                            fontSize: "14",
+                            fontWeight: '600',
+                            fontFamily: 'PingFangSC-Semibold',
+                            lineHeight: 15,
+                        },
+                    },
+                     grid: {
+                        left: '25%',
+                        top: '0',
+                        right: '0',
+                        bottom: '0',
+                        containLabel: true,
+                        width : '95%'
+                    },
+                    xAxis: {
+                        type: 'value',
+                        splitLine: {show: false},
+                        axisLabel: {show: false},
+                        axisTick: {show: false},
+                        axisLine: {show: false},
+                    },
+                    yAxis: {
+                        type: 'category',
+                        axisTick: {show: false},
+                        axisLine: {show: false},
+                        axisLabel: {show: false},
+                    },
+                    series: [
+                        {
+                            name: '',
+                            type: 'bar',
+                            barWidth: 18,
+                            data: [5],
+                            label: {
+                                show: true,
+                                // position    : 'middle',
+                                offset: [10,2],
+                                formatter: '{c}{a}%',
+                                color: '#fff',
+                                fontSize: 14
+                            },
+                            itemStyle       : {
+                                normal: {
+                                    // color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    // { offset: 0, color: "#19E3FA " },
+                                    // { offset: 1, color: "#19E3FA " },
+                                    // ]),
+                                    color: "#1F8EFA "
+                                },
+                                barBorderRadius: 9,
+                            },
+                            zlevel: 1
+                        },
+                        {
+                            name: '进度条背景',
+                            type: 'bar',
+                            barGap: '-100%',
+                            barWidth: 18,
+                            data: [100],
+                            color: '#114A57',//柱条颜色
+                            itemStyle: {
+                                normal: {
+                                    barBorderRadius: 9,
+                                    borderColor: '#114A57',
+                                }
+                            }
+                            // zlevel: 0
+                        }
+                    ]
+                };
+            // 绘制图表
+            myChart.setOption(option);
+            window.addEventListener("resize", () => {
+                myChart.resize();
+            });
         },
         //合同制来源分布图
         contractBar() {
