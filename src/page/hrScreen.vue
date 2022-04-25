@@ -8,7 +8,7 @@
       </span>
       <h1>人力资源驾驶舱</h1>
     </div>
-    <el-row :gutter="24" style="margin-top: 10px">
+    <el-row :gutter="24" style="margin: 10px 0px 0px 0px">
       <el-col :span="8" class="hr1">
         <el-card class="card" style="margin-left:10px">
           <div slot="header" style="margin-left: 25px">

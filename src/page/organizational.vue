@@ -20,7 +20,7 @@
                 prop="date"
                 label="二级单位"
                 :cell-style="{ background: '#0C96DA' }"
-                width="120">
+                width="110">
                 </el-table-column>
                 <el-table-column
                 prop="date"

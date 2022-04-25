@@ -8,7 +8,7 @@
             </span>
             <h1>人力资源驾驶舱</h1>
         </div>
-        <el-row type="flex"  justify="space-around" :gutter="24">
+        <el-row type="flex"  justify="space-around" :gutter="24" style="margin: 10px 0px 0px 0px">
             <el-col :span="8" class="rowTop card" style="padding: 0px 0px 0px 0px;">
                 <!-- <el-card style="margin-left:10px"> -->
                     <div class="row-bg"  >
@@ -721,7 +721,7 @@ export default {
 <style scoped lang="less">
 .BPMlist{
   background: url("../assets/background/background.jpg") 100%;
-  height: 100%;
+//   height: 100%;
 }
 /deep/.card{
     background-color: transparent; 
