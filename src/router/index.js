@@ -23,6 +23,14 @@ const routesMap = [
       title: '组织指标',
     },
     component:() => import('../page/management.vue'),
+  },
+  {
+    path:"/page/hrFront",
+    name:'HrFront',
+    meta: {
+      title: '组织指标',
+    },
+    component:() => import('../page/hrFront.vue'),
   }
 ]
 
