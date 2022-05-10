@@ -12,21 +12,22 @@
     </div>
     <el-row :gutter="24" style="margin: 10px 0px 0px 0px">
       <el-col :span="6">
-        <el-card class="card" >
-            <div>
-                <p class="line">人员总量</p>
-                <img src="../assets/hrFront/leftTitle.png"  height="20px" />
-            </div>
-            <div class="fullBoreBar">
-                <div class="fullBore">
-                    <p>全口径</p>
-                    <span>6000<p style="padding: 10px 0px 0px 10px">人</p></span>
-                </div> 
-                <div>
-                     <div ref="comparison" style="height: 200px; width: 200px"></div>
-                </div>
-            </div>
-         
+        <!-- <el-card class="card"> -->
+        <div class="cardUp">
+          <div>
+              <p class="line">人员总量</p>
+              <img src="../assets/hrFront/leftTitle.png"  height="20px" />
+          </div>
+          <div class="fullBoreBar">
+              <div class="fullBore">
+                  <p>全口径</p>
+                  <span>6000<p style="padding: 10px 0px 0px 10px">人</p></span>
+              </div> 
+              <div>
+                    <div ref="comparison" style="height: 200px; width: 200px"></div>
+              </div>
+          </div>
+        
           <div class="fullBoreBar">
               <div class="leftFull">
                   <p class="leftFullWr">合同制</p>
@@ -34,16 +35,18 @@
                   <p class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span></p>
                   <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span></p>
               </div>
-              <div class="leftFull">
+              <div class="leftFull" style="margin-left:10px">
                   <p class="leftFullWr">紧密型外包</p>
                   <span>3287<span style="font-size: 12px;">人</span></span>
                   <p class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span></p>
                   <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span></p>
               </div>
           </div>
-        </el-card>
-        <el-card style="margin-top: 30px;margin-left:10px" class="card">
-          <div style="margin-left: 25px">
+        </div>
+        <!-- </el-card> -->
+        <div class="cardlower">
+        <!-- <el-card style="margin-top: 30px;margin-left:10px" class="card"> -->
+          <div >
                 <p class="line">人员结构</p>
                 <img src="../assets/hrFront/leftTitle.png"  height="20px" />
             </div>
@@ -55,10 +58,12 @@
                 <div ref="profession"  class="changeData"></div>
                 <div ref="talent" class="changeData"></div>
             </div>
-        </el-card>
+        <!-- </el-card> -->
+        </div>
       </el-col>
       <el-col :span="12">
-        <el-card class="card">
+        <div class="card">
+        <!-- <el-card class="card"> -->
           <div slot="header" >
                 
                 <div class="central">人员效能</div>
@@ -114,11 +119,11 @@
                     <img src="../assets/hrFront/resultRight.png" width="6px" height="10px"/>
                   </div>
                   <div class="perCapitaTop">
-                    <div class="perCapita opportunities" >人均创收</div>
-                    <div class="perCapita opportunities" style="margin-left:10px">客户收入覆盖率</div>
+                    <div class="perCapita opportunities" @click="marketingClick(1)" :class="{actionsColor:clickColor==1}">人均创收</div>
+                    <div class="perCapita opportunities" style="margin-left:10px" @click="marketingClick(2)" :class="{actionsColor:clickColor==2}">客户收入覆盖率</div>
                   </div>
                   <div>
-                     <div ref="perCapitaIncome" style="height: 200px; width: 250px"></div>
+                     <div ref="perCapitaIncome" style="height: 280px; width: 250px" v-if="clickColor==1"></div>
                   </div>
                 </div>
                 <div>
@@ -129,15 +134,15 @@
                       <img src="../assets/hrFront/resultRight.png" width="6px" height="10px"/>
                     </div>
                     <div class="perCapitaTop">
-                      <div class="deliveryRate  opportunities">交付率</div>
-                      <div class="deliveryRate opportunities" style="margin-left:10px">商机转化率</div>
+                      <div class="deliveryRate  opportunities" @click="marketingClick(3)" :class="{actionsColor:clickColor==3}">交付率</div>
+                      <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(4)" :class="{actionsColor:clickColor==4}">商机转化率</div>
                     </div>
                     <div class="perCapitaTop">
-                      <div class="deliveryRate opportunities" >人均商机数</div>
-                      <div class="deliveryRate opportunities" style="margin-left:10px">人均客户拜访数</div>
+                      <div class="deliveryRate opportunities" @click="marketingClick(5)" :class="{actionsColor:clickColor==5}">人均商机数</div>
+                      <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(6)" :class="{actionsColor:clickColor==6}">人均客户拜访数</div>
                     </div>
                     <div>
-                      <div ref="business" style="height: 200px; width: 250px"></div>
+                      <div ref="business" style="height: 280px; width: 250px"></div>
                     </div>
                   <!-- </div> -->
                 </div>
@@ -150,70 +155,114 @@
                     </div>
                     <div>
                        <div class="perCapitaTop">
-                          <div class="deliveryRate  opportunities">销售配置到位率</div>
-                          <div class="deliveryRate opportunities" style="margin-left:10px">考勤达标率</div>
+                          <div class="deliveryRate  opportunities" @click="marketingClick(7)" :class="{actionsColor:clickColor==7}">销售配置到位率</div>
+                          <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(8)" :class="{actionsColor:clickColor==8}">考勤达标率</div>
                         </div>
                         <div class="perCapitaTop">
-                          <div class="deliveryRate opportunities" >认证通过率</div>
-                          <div class="deliveryRate opportunities" style="margin-left:10px">薪酬绩效同向</div>
+                          <div class="deliveryRate opportunities" @click="marketingClick(9)" :class="{actionsColor:clickColor==9}">认证通过率</div>
+                          <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(10)" :class="{actionsColor:clickColor==10}">薪酬绩效同向</div>
                         </div>
                     </div>
                     <div>
-                      <div ref="team" style="height: 200px; width: 250px"></div>
+                      <div ref="team" style="height: 280px; width: 250px"></div>
                     </div>
                   </div>
                 <!-- </div> -->
               </div>
             </div>
-        </el-card>
+        <!-- </el-card> -->
+        </div>
       </el-col>
       <el-col :span="6">
-        <el-card class="card" style="margin-right:10px">
+        <div class="cardRightUp">
+        <!-- <el-card class="card" style="margin-right:10px"> -->
           <div>
             <p class="line" style="margin-left:320px">关键人才</p>
             <img src="../assets/hrFront/rightTitle.png"  height="20px"  width="420px"/>  
           </div>
-          <div class="analyze">
-            <div class="rightPic">
-              <p class="leftFullWr" style="margin-bottom:5px">科创人才</p>
+          <div class="analyze" style="margin-top:20px">
+            <div class="rightPic" @click="keyTalent(1)" :class="{active:activeName==1}">
+              <p class="leftFullWr" style="margin-bottom:5px" :class="{actions:activeName==1}">科创人才</p>
               <p class="leftFullNum">165<span>人</span></p>
             </div>
-            <div class="rightPic"  style="margin-left:10px">
-              <p class="leftFullWr" style="margin-bottom:5px">研发人员</p>
+            <div class="rightPic"  style="margin-left:10px" @click="keyTalent(2)" :class="{active:activeName==2}">
+              <p class="leftFullWr" style="margin-bottom:5px" :class="{actions:activeName==2}">研发人员</p>
               <p class="leftFullNum">165<span>人</span></p>
             </div>
-            <div class="rightPic" style="margin-left:10px">
-              <p class="leftFullWr" style="margin-bottom:5px">政企上级</p>
+            <div class="rightPic" style="margin-left:10px" @click="keyTalent(3)" :class="{active:activeName==3}">
+              <p class="leftFullWr" style="margin-bottom:5px" :class="{actions:activeName==3}">政企上级</p>
               <p class="leftFullNum">165<span>人</span></p>
             </div>
           </div>
           <div class="analyze" style="margin-top:10px">
-            <div class="rightPic">
-              <p class="leftFullWr" style="margin-bottom:5px">政企下级</p>
+            <div class="rightPic" @click="keyTalent(4)" :class="{active:activeName==4}">
+              <p class="leftFullWr" style="margin-bottom:5px" :class="{actions:activeName==4}">政企下级</p>
               <p class="leftFullNum">165<span>人</span></p>
             </div>
-            <div class="rightPic"  style="margin-left:10px">
-              <p class="leftFullWr" style="margin-bottom:5px">智慧沃商工程师</p>
+            <div class="rightPic"  style="margin-left:10px" @click="keyTalent(5)" :class="{active:activeName==5}">
+              <p class="leftFullWr" style="margin-bottom:5px" :class="{actions:activeName==5}">智慧沃商工程师</p>
               <p class="leftFullNum">165<span>人</span></p>
             </div>
-            <div class="rightPic" style="margin-left:10px">
-              <p class="leftFullWr" style="margin-bottom:5px">智慧家庭工程师</p>
+            <div class="rightPic" style="margin-left:10px" @click="keyTalent(6)" :class="{active:activeName==6}">
+              <p class="leftFullWr" style="margin-bottom:5px" :class="{actions:activeName==6}">智慧家庭工程师</p>
               <p class="leftFullNum">165<span>人</span></p>
             </div>
           </div>
           <div style="text-align:center;margin-top:20px">
             <img src="../assets/hrFront/resultLeft.png" width="6px" height="10px"/>
-            <span class="result">政企下级</span>
+            <span class="result" v-if="activeName==1">科创人才</span>
+            <span class="result" v-if="activeName==2">研发人员</span>
+            <span class="result" v-if="activeName==3">政企上级</span>
+            <span class="result" v-if="activeName==4">政企下级</span>
+            <span class="result" v-if="activeName==5">智慧沃商工程师</span>
+            <span class="result" v-if="activeName==6">智慧家庭工程师</span>
             <img src="../assets/hrFront/resultRight.png" width="6px" height="10px"/>
           </div>
-          <div>
-            <div ref="government" style="height: 200px; width: 400px"></div>
+          <div >
+            <div ref="division" style="height: 200px; width: 400px" v-if="activeName==1"></div>
+            <div ref="research" style="height: 200px; width: 400px" v-if="activeName==2"></div>
+            <div ref="superior" style="height: 200px; width: 400px" v-if="activeName==3"></div>
+            <div ref="government" style="height: 200px; width: 400px" v-if="activeName==4"></div>
+            <div ref="yosho" style="height: 200px; width: 400px" v-if="activeName==5"></div>
+            <div ref="family" style="height: 200px; width: 400px" v-if="activeName==6"></div>
           </div>
-          <div>
-            <p class="line" style="margin-left:320px">人才引擎</p>
-            <img src="../assets/hrFront/rightTitle.png"  height="20px"  width="420px"/>  
-          </div>
-        </el-card>
+          <div ref="enterprise" style="width:400px;height:180px;" ></div>
+        </div>
+        <!-- </el-card> -->
+        <div class="cardRightLower">
+           <div>
+              <p class="line" style="margin-left:320px">人才引擎</p>
+              <img src="../assets/hrFront/rightTitle.png"  height="20px"  width="420px"/>  
+            </div>
+            <div class="fullBoreBar"  style="margin-top:30px">
+              <div>
+                <div class="fullBoreBar">
+                  <div class="intelligence">人工智能</div>
+                  <div class="technology">科创人才</div>
+                </div>
+                
+                <div class="fullBoreBar">
+                  <div class="capabilities">云能力</div>
+                  <div>
+                    <p class="big">大数据</p>
+                    <p  class="safety">网络安全</p>
+                  </div>
+                  <div  class="Internet">物联网</div>
+                </div>
+              </div>
+              <div>
+                <p class="intelligent">人工智能</p>
+                <div class="artificial">
+                  <span class="leftFullWr">实有</span>
+                  <span class="number" style="margin-left:40px">465<span class="result">人</span></span>
+                </div>
+                <div class="artificial" >
+                  <span class="leftFullWr" >在岗</span>
+                  <span class="number"  style="margin-left:40px">433<span class="result">人</span></span>
+                </div>
+              </div>
+            </div>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -226,7 +275,8 @@ export default {
   name: "HrFront",
   data() {
     return {
-    //   
+      activeName: 3,
+      clickColor: 1,
     };
   },
   computed: {
@@ -249,15 +299,27 @@ export default {
     //   this.drawPie()
       this.totalTeam();
       this.ageBar();
-      this.professionBar()
-      this.talentBar()
-      this.perCapitaBar()
-      this.businessLine()
-      this.teamLine()
-      this.governmentBar()
+      this.professionBar();
+      this.talentBar();
+      this.perCapitaBar();
+      this.businessLine();
+      this.teamLine();
+      this.superiorBar();
+      this.superiorPie();
+      this.divisionBar();
+      this.governmentBar();
+      // this.divisionBar();
+      
   },
   methods: {
-      
+    
+    keyTalent(index){
+        this.activeName = index;
+        // this.governmentBar();
+    },
+    marketingClick(index){
+      this.clickColor = index
+    },
     monthlyData () {
       //初始化容器
       let myChart = this.$echarts.init(this.$refs["comparison"]);
@@ -388,7 +450,7 @@ export default {
         },
          graphic: {
             type: "text",
-            left: "90",
+            left: "100",
             top: "75",
             style: {
                 text: "学历",
@@ -462,7 +524,7 @@ export default {
         },
          graphic: {
             type: "text",
-            left: "90",
+            left: "100",
             top: "75",
             style: {
                 text: "年龄",
@@ -514,7 +576,6 @@ export default {
         ],
       };
       // 绘制图表
-      // this.$echarts.init(this.$refs.age).setOption(options);
       myChart.setOption(option);
       window.addEventListener("resize", () => {
         myChart.resize();
@@ -538,7 +599,7 @@ export default {
         },
          graphic: {
             type: "text",
-            left: "90",
+            left: "100",
             top: "75",
             style: {
                 text: "职务",
@@ -590,7 +651,6 @@ export default {
         ],
             };
             // 绘制图表
-            // this.$echarts.init(this.$refs.profession).setOption(options);
             myChart.setOption(option);
             window.addEventListener("resize", () => {
               myChart.resize();
@@ -612,7 +672,7 @@ export default {
         },
          graphic: {
             type: "text",
-            left: "90",
+            left: "100",
             top: "75",
             style: {
                 text: "人才",
@@ -664,7 +724,6 @@ export default {
         ],
             };
             // 绘制图表
-            // this.$echarts.init(this.$refs.profession).setOption(options);
             myChart.setOption(option);
             window.addEventListener("resize", () => {
               myChart.resize();
@@ -943,7 +1002,7 @@ export default {
       });
     },
     // 政企下级
-     governmentBar () {
+    governmentBar () {
       //初始化容器
       let myChart = this.$echarts.init(this.$refs["government"]);
       //初始化图标配置选项
@@ -952,8 +1011,6 @@ export default {
           x: 35,
           y: 25,
           x2: -5,
-          // y2: 25,
-        //   top: '20%',
           borderWidth: 1,
         },
         xAxis: {
@@ -1036,6 +1093,248 @@ export default {
         myChart.resize();
       });
     },
+    // 科创人才
+    divisionBar(){
+      let myChart = this.$echarts.init(this.$refs['division']);
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: -5,
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "南区",
+            "北区",
+            "西区",
+            "东区",
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340] ,
+            type: "bar",
+            barMaxWidth: 10,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#91D4FE" },
+                  { offset: 1, color: "#0AAEFF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+      
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+            
+    },
+    // 政企上级
+    superiorBar(){
+       let myChart = this.$echarts.init(this.$refs['superior']);
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: -5,
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "金融科技",
+            "云网生态",
+            "现代服务",
+            "交通物流",
+            "智慧城市",
+            "智能制造",
+            "教育医卫",
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340, 360, 350,340] ,
+            type: "bar",
+            barMaxWidth: 10,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#91D4FE" },
+                  { offset: 1, color: "#0AAEFF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+      
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+     // 学历拼图
+    superiorPie() {
+      let myChart = this.$echarts.init(this.$refs["enterprise"]);
+      let option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        legend: {
+          // itemHeight: 7,
+          // itemWidth: 7,
+          // bottom: '3%',
+          orient: "vertical",
+          icon:"circle",
+          align:"left",
+          right:20,
+          y: "center",
+          itemWidth:8,
+          textStyle: {
+            color: "#FFFFFF",
+            fontSize: 12,
+          },
+        },
+        series: [
+          {
+            type: "pie",
+            radius: ["45%", "80%"],
+            center: ["40%", "40%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: "center",
+            },
+            itemStyle: {
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              },
+              normal:{
+                color: ((params) => {
+                //自定义颜色
+                let colorList = ['#4A5CC7 ', '#15299C', '#236D22', '#DE3C56','#51FD97','#8064A2','#F79646'];
+                  return colorList[params.dataIndex]
+                })
+              }
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "15",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: [
+              { value: 145, name: "金融科技" },
+              { value: 208, name: "云网生态" },
+              { value: 148, name: "现代服务" },
+              { value: 148, name: "交通物流" },
+              { value: 148, name: "智慧城市" },
+              { value: 148, name: "智能制造" },
+              { value: 148, name: "教育医卫" },
+            ],
+          },
+        ],
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
   },
 };
 </script>
@@ -1044,6 +1343,30 @@ export default {
   /* color: white; */
   /* padding: 8px; */
   margin-top: 10px;
+}
+.cardUp{
+  padding:0 20px 20px 20px;
+  background: url("../assets/hrFront/cardUp.png") center;
+  background-size: 100% 100%;
+}
+.cardlower{
+  // padding:0 20px 20px 20px;
+  background: url("../assets/hrFront/cardlower.png") center;
+  background-size: 100% 100%;
+  margin: 30px 0 20px 0px;
+  // padding:0 20px 20px 20px
+}
+.cardRightUp{
+  padding:0 20px 20px 20px;
+  background: url("../assets/hrFront/cardRightUp.png") center;
+  background-size: 100% 100%;
+}
+.cardRightLower{
+  height: 260px;
+
+  background: url("../assets/hrFront/cardRightLower.png") center;
+  background-size: 100% 100%;
+  margin: 30px 0 20px 10px;
 }
 .headTime{
   font-family: Helvetica;
@@ -1105,8 +1428,11 @@ export default {
 .leftFull{
     height: 179px;
     width: 230px;
-    background: rgba(0,48,102,0.20);
-    border: 1px solid rgba(0,98,209,0.50);
+    background: url("../assets/hrFront/leftFull.png") center;
+    background-size: 100% 100%;
+    // background: rgba(0,48,102,0.20);
+    // border: 1px solid rgba(0,98,209,0.50);
+    // border: 1px solid rgba(0,98,209,0.50);
     // p{
         
     // }
@@ -1231,7 +1557,7 @@ export default {
   }
 }
 .BPMlist {
-  background: url("../assets/background/background.jpg") 100%;
+  background: url("../assets/hrFront/background.png") 100%;
 }
 .contractSystem {
   width: 40px;
@@ -1244,7 +1570,7 @@ export default {
 .changeData{
   width: 260px;
   height: 200px;
-  background: rgba(4,32,96,0.40);
+  // background: rgba(4,32,96,0.40);
   
 }
 /deep/.el-card__header {
@@ -1318,9 +1644,9 @@ export default {
     margin-left: 55%;
   }
 /deep/.el-card {
-  // opacity: 0.46;
+  // opacity: 0.6;
   background: rgba(14,34,89,0.79);
-  border: 1px solid rgba(11,62,187,0.79);
+  // border: 1px solid rgba(11,62,187,0.79);
   // border: 1px solid rgba(11,62,187,0.79);
 }
 .analyze{
@@ -1350,13 +1676,19 @@ export default {
   line-height: 74px;
 }
 .opportunities{
-  background: #062E7E;
+  color: #23A1EF;
+  background: rgba(14,34,89,0.79);
   border-radius: 2px;
   border-radius: 2px;
   font-size: 14px;
-  color: #FFFFFF;
   letter-spacing: 0;
   text-align: center;
+  // opacity: 0.28;
+}
+.actionsColor{
+  color: #fff;
+  background: #092C79;
+
 }
 .deliveryRate{
   width: 140px;
@@ -1377,6 +1709,16 @@ export default {
     letter-spacing: 0;
   }
 }
+.active{
+    width: 140px;
+    height: 75px;
+    background: url("../assets/hrFront/rightBack.png") center;
+    background-size: 100% 100%;
+    
+}
+.actions{
+  color: #FFFFFF;
+}
 .leftFullNum{
   font-family: PingFangSC-Semibold;
   font-size: 30px;
@@ -1384,5 +1726,89 @@ export default {
   letter-spacing: 0;
   line-height: 30px;
   margin: 0 0 0  20px
+}
+.artificial{
+  width: 178px;
+  height: 54px;
+  background: url("../assets/hrFront/artificial.png") center;
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 54px;
+  margin: 20px 0 20px 0;
+  // margin-left: 100px;
+}
+.number{
+  font-family: PingFangSC-Medium;
+  font-size: 28px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  // text-align: right;
+  line-height: 28px;
+}
+.intelligence{
+  width: 147px;
+  height: 49px;
+  border: 1px dashed #FFD52E;
+  border-radius: 6px;
+  // border-radius: 6px;
+  color: #FFD52E;
+  font-size: 32px;
+  text-align: center;
+  line-height: 48px;
+  margin-left: 10px;
+}
+.technology{
+  font-family: PingFangSC-Medium;
+  font-size: 22px;
+  color: #E6A3D3;
+  letter-spacing: 0;
+  line-height: 48px;
+  text-align: center;
+  height: 49px;
+  margin-left: 5px;
+  // margin: 10px ;
+}
+.capabilities{
+  width: 28px;
+  height: 84px;
+  font-family: PingFangSC-Medium;
+  font-size: 28px;
+  color: #0447FF;
+  letter-spacing: 0;
+  line-height: 28px;
+  margin: 20px 0 0 10px;
+}
+.big{
+  font-family: PingFangSC-Medium;
+  font-size: 48px;
+  color: #14EEFF;
+  letter-spacing: 0;
+  line-height: 48px;
+  margin: 20px 0 10px 0px;
+}
+.safety{
+  font-family: PingFangSC-Medium;
+  font-size: 30px;
+  color: #FFD52E;
+  letter-spacing: 0;
+  line-height: 30px;
+  margin: 16px 0 10px 15px;
+}
+.Internet{
+  height: 100px;
+  width: 34px;
+  font-family: PingFangSC-Medium;
+  font-size: 34px;
+  color: #4553DC;
+  letter-spacing: 0;
+  line-height: 32.6px;
+  margin-top: 20px;
+}
+.intelligent{
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 16px;
 }
 </style>
