@@ -1100,8 +1100,18 @@ export default {
       //设置成功
       myChart.setOption(option);
       window.addEventListener("resize", () => {
+        // myChart.clear()
         myChart.resize();
+        // myChart.setOption(option)
       });
+      // myChart.on("click",option);  
+//       this.$nextTick(() => {
+//         myChart = this.$echarts.init(this.$refs.comparison)
+//         myChart.clear()
+//         myChart.resize()
+//         myChart.setOption(option)
+//         this.loading = false
+//  })
     },
     // 队伍人员年度对比数据
     yearData () {

@@ -2,7 +2,7 @@
   <div class="BPMlist">
     <div class="head">
       
-      <div class="headLogo" style="margin-top:10px"></div>
+      <div class="headLogo" style="margin-top:20px"></div>
       <!-- <span class="headDate">
         <p >星期{{ week }}</p>
         <p>{{ date }}</p>
@@ -32,14 +32,22 @@
               <div class="leftFull">
                   <p class="leftFullWr">合同制</p>
                   <span>3287<span style="font-size: 12px;">人</span></span>
-                  <p class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span></p>
-                  <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span></p>
+                  <div class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span>
+                    <img src="../assets/hrFront/addPic.png"  height="24px" style="margin-left:3px"/>
+                  </div>
+                  <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span>
+                    <img src="../assets/hrFront/reduce.png"  height="24px" style="margin-left:5px"/>
+                  </p>
               </div>
               <div class="leftFull" style="margin-left:10px">
                   <p class="leftFullWr">紧密型外包</p>
                   <span>3287<span style="font-size: 12px;">人</span></span>
-                  <p class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span></p>
-                  <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span></p>
+                  <p class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span>
+                    <img src="../assets/hrFront/addPic.png"  height="24px" style="margin-left:3px"/>
+                  </p>
+                  <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span>
+                    <img src="../assets/hrFront/reduce.png"  height="24px" style="margin-left:5px"/>
+                  </p>
               </div>
           </div>
         </div>
@@ -71,9 +79,11 @@
                   <img src="../assets/hrFront/central.png"  width="800px" />
                 </div>
                 
-                <div class="ranking"> 
+                <div class="ranking">
+                  <span class="leftRank">05</span> 
                   <span class="national">全国排名</span>
                   <span class="south">南方排名</span>
+                  <span class="rightRank">02</span> 
                   <img src="../assets/hrFront/ranking.png" width="800px" height="20px"/>
                  
                 </div>
@@ -81,6 +91,7 @@
                     <div class="science">
                       <div class="chain">
                         <p style="margin:10px 0 10px 121px;">环比</p>
+                        <img src="../assets/hrFront/reduce.png"  height="24px" style="margin-left:60px"/>
                         <span class="percent">3.66%</span>
                       </div>
                       <div class="chainMiddle">
@@ -89,7 +100,8 @@
                       </div>
                       <div class="chainRight">
                         <p style="margin:10px 0 10px 40px;">同比</p>
-                        <span class="percent" style="margin-left:40px;">12.4%</span>
+                        <span class="percent" style="margin-left:40px;color: #F64454;">12.4%</span>
+                        <img src="../assets/hrFront/addPic.png"  height="24px" style="margin-left:5px"/>
                       </div>
                     </div>
                     <div class="science">
@@ -102,7 +114,7 @@
                         <p class="laborRate" style="margin-top:-85px">人工成本利润率</p>
                       </div>
                       <div class="scienceNum" style="margin: -100px 0 0px 90px;">
-                        <span class="percentageNum">78.52<span class="percentage">%</span></span>
+                        <span class="percentageNum">78.52<span class="percentage">万/人</span></span>
                         <p class="laborRate" style="margin-top:-85px">人均创收</p>
                       </div>
                     </div>
@@ -123,7 +135,7 @@
                     <div class="perCapita opportunities" style="margin-left:10px" @click="marketingClick(2)" :class="{actionsColor:clickColor==2}">客户收入覆盖率</div>
                   </div>
                   <div>
-                     <div ref="perCapitaIncome" style="height: 280px; width: 250px" v-if="clickColor==1"></div>
+                     <div ref="perCapitaIncome" style="height: 280px; width: 250px" v-show="clickColor==1"></div>
                   </div>
                 </div>
                 <div>
@@ -134,12 +146,12 @@
                       <img src="../assets/hrFront/resultRight.png" width="6px" height="10px"/>
                     </div>
                     <div class="perCapitaTop">
-                      <div class="deliveryRate  opportunities" @click="marketingClick(3)" :class="{actionsColor:clickColor==3}">交付率</div>
-                      <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(4)" :class="{actionsColor:clickColor==4}">商机转化率</div>
+                      <div class="deliveryRate  opportunities" @click="processClick(1)" :class="{actionsColor:processColor==1}">交付率</div>
+                      <div class="deliveryRate opportunities" style="margin-left:10px" @click="processClick(2)" :class="{actionsColor:processColor==2}">商机转化率</div>
                     </div>
                     <div class="perCapitaTop">
-                      <div class="deliveryRate opportunities" @click="marketingClick(5)" :class="{actionsColor:clickColor==5}">人均商机数</div>
-                      <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(6)" :class="{actionsColor:clickColor==6}">人均客户拜访数</div>
+                      <div class="deliveryRate opportunities" @click="processClick(3)" :class="{actionsColor:processColor==3}">人均商机数</div>
+                      <div class="deliveryRate opportunities" style="margin-left:10px" @click="processClick(4)" :class="{actionsColor:processColor==4}">人均客户拜访数</div>
                     </div>
                     <div>
                       <div ref="business" style="height: 280px; width: 250px"></div>
@@ -155,12 +167,12 @@
                     </div>
                     <div>
                        <div class="perCapitaTop">
-                          <div class="deliveryRate  opportunities" @click="marketingClick(7)" :class="{actionsColor:clickColor==7}">销售配置到位率</div>
-                          <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(8)" :class="{actionsColor:clickColor==8}">考勤达标率</div>
+                          <div class="deliveryRate  opportunities" @click="teamClick(1)" :class="{actionsColor:teamColor==1}">销售配置到位率</div>
+                          <div class="deliveryRate opportunities" style="margin-left:10px" @click="teamClick(2)" :class="{actionsColor:teamColor==2}">考勤达标率</div>
                         </div>
                         <div class="perCapitaTop">
-                          <div class="deliveryRate opportunities" @click="marketingClick(9)" :class="{actionsColor:clickColor==9}">认证通过率</div>
-                          <div class="deliveryRate opportunities" style="margin-left:10px" @click="marketingClick(10)" :class="{actionsColor:clickColor==10}">薪酬绩效同向</div>
+                          <div class="deliveryRate opportunities" @click="teamClick(3)" :class="{actionsColor:teamColor==3}">认证通过率</div>
+                          <div class="deliveryRate opportunities" style="margin-left:10px" @click="teamClick(4)" :class="{actionsColor:teamColor==4}">薪酬绩效同向</div>
                         </div>
                     </div>
                     <div>
@@ -219,14 +231,19 @@
             <img src="../assets/hrFront/resultRight.png" width="6px" height="10px"/>
           </div>
           <div >
-            <div ref="division" style="height: 200px; width: 400px" v-if="activeName==1"></div>
-            <div ref="research" style="height: 200px; width: 400px" v-if="activeName==2"></div>
-            <div ref="superior" style="height: 200px; width: 400px" v-if="activeName==3"></div>
-            <div ref="government" style="height: 200px; width: 400px" v-if="activeName==4"></div>
-            <div ref="yosho" style="height: 200px; width: 400px" v-if="activeName==5"></div>
-            <div ref="family" style="height: 200px; width: 400px" v-if="activeName==6"></div>
+            <div ref="division" style="height: 200px; width: 400px" v-show="activeName==1"></div>
+            <div ref="research" style="height: 200px; width: 400px" v-show="activeName==2"></div>
+            <div ref="superior" style="height: 200px; width: 400px" v-show="activeName==3"></div>
+            <div ref="government" style="height: 200px; width: 400px" v-show="activeName==4"></div>
+            <div ref="yosho" style="height: 200px; width: 400px" v-show="activeName==5"></div>
+            <div ref="family" style="height: 200px; width: 400px" v-show="activeName==6"></div>
           </div>
-          <div ref="enterprise" style="width:400px;height:180px;" ></div>
+          <div ref="innovation" style="height: 200px; width: 400px" v-show="activeName==1"></div>
+          <div ref="develop" style="height: 200px; width: 400px" v-show="activeName==2"></div>
+          <div ref="enterprise" style="width:400px;height:180px;" v-show="activeName==3"></div>
+          <div ref="subordinates" style="width:400px;height:180px;" v-show="activeName==4"></div>
+          <div ref="smart" style="width:400px;height:180px;" v-show="activeName==5"></div>
+          <div ref="homeEngineer" style="width:400px;height:180px;" v-show="activeName==6"></div>
         </div>
         <!-- </el-card> -->
         <div class="cardRightLower">
@@ -270,13 +287,14 @@
 
 <script>
 import dayjs from "dayjs";
-// import echarts from 'echarts'
 export default {
   name: "HrFront",
   data() {
     return {
       activeName: 3,
       clickColor: 1,
+      processColor: 1,
+      teamColor:  1,
     };
   },
   computed: {
@@ -295,31 +313,45 @@ export default {
     },
   },
   mounted() {
-      this.monthlyData();
-    //   this.drawPie()
-      this.totalTeam();
-      this.ageBar();
-      this.professionBar();
-      this.talentBar();
-      this.perCapitaBar();
-      this.businessLine();
-      this.teamLine();
-      this.superiorBar();
-      this.superiorPie();
-      this.divisionBar();
-      this.governmentBar();
-      // this.divisionBar();
-      
+      this.monthlyData();      // 人员总量
+      this.totalTeam();        // 学历    
+      this.ageBar();           // 年龄
+      this.professionBar();    // 职务拼图
+      this.talentBar();        // 人才
+      this.perCapitaBar();     // 人均创收 
+      this.businessLine();     // 商机
+      this.teamLine();         // 团队管理
+      this.superiorBar();      // 政企上级
+      this.superiorPie();      // 政企上级
+      this.divisionBar();      // 科创人才
+      this.governmentBar();    // 政企下级
+      this.yoshoBar();         // 智慧沃商
+      this.familyBar();        // 智慧家庭
+      this.researchBar();       // 研发人员
+      this.researchPie();
+      this.innovationPie();
+      this.subordinatesPie();
+      this.smartPie()         // 智慧沃商
+      this.homeEngineerPie()  // 智慧家庭
   },
   methods: {
-    
+    // 关键人才
     keyTalent(index){
         this.activeName = index;
-        // this.governmentBar();
     },
+    // 营销结果
     marketingClick(index){
       this.clickColor = index
     },
+    // 营销过程
+    processClick(index){
+      this.processColor = index
+    },
+    // 团队管理
+    teamClick(){
+      this.teamColor = index
+    },
+    // 人员总量
     monthlyData () {
       //初始化容器
       let myChart = this.$echarts.init(this.$refs["comparison"]);
@@ -434,73 +466,75 @@ export default {
     totalTeam () {
       let myChart = this.$echarts.init(this.$refs["education"]);
       let option = {
-        tooltip: {
-          trigger: "item",
-          formatter: "{a} <br/>{b}: {c} ({d}%)",
-        },
-        legend: {
-          itemHeight: 7,
-          itemWidth: 7,
-          bottom: '3%',
-          left: 'center',
-          textStyle: {
-            color: "#FFFFFF",
-            fontSize: 12,
-          },
-        },
-         graphic: {
-            type: "text",
-            left: "100",
-            top: "75",
-            style: {
-                text: "学历",
-                textAlign: "center",
-                fill: "#02D3E9",
-            }
-        },
-        series: [
-          {
-            type: "pie",
-            radius: ["50%", "70%"],
-            center: ["50%", "40%"],
-            avoidLabelOverlap: false,
-            label: {
-              show: false,
-              position: "center",
+        
+            tooltip: {
+              trigger: "item",
+              formatter: "{a}<br/>{b}: {c}({d}%)",
             },
-            itemStyle: {
-              emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              },
-              normal:{
-                color: ((params) => {
-                //自定义颜色
-                let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
-                  return colorList[params.dataIndex]
-                })
-              }
-            },
-            emphasis: {
-              label: {
-                show: true,
-                fontSize: "15",
-                fontWeight: "bold",
+            legend: {
+              itemHeight: 7,
+              itemWidth: 7,
+              bottom: '3%',
+              left: 'center',
+              textStyle: {
+                color: "#FFFFFF",
+                fontSize: 12,
               },
             },
-            labelLine: {
-              show: true,
+            graphic: {
+                type: "text",
+                left: "100",
+                top: "75",
+                style: {
+                    text: "学历",
+                    textAlign: "center",
+                    fill: "#02D3E9",
+                }
             },
-            data: [
-              { value: 145, name: "博士及以上" },
-              { value: 208, name: "硕士" },
-              { value: 1448, name: "大学本科" },
-              { value: 148, name: "其他" },
+            series: [
+              {
+                type: "pie",
+                name: "学历",
+                radius: ["50%", "70%"],
+                center: ["50%", "40%"],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: "center",
+                },
+                itemStyle: {
+                  emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  },
+                  normal:{
+                    color: ((params) => {
+                    //自定义颜色
+                    let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
+                      return colorList[params.dataIndex]
+                    })
+                  }
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: "15",
+                    fontWeight: "bold",
+                  },
+                },
+                labelLine: {
+                  show: true,
+                },
+                data: [
+                  { value: 145, name: "博士及以上" },
+                  { value: 208, name: "硕士" },
+                  { value: 1448, name: "大学本科" },
+                  { value: 148, name: "其他" },
+                ],
+              },
             ],
-          },
-        ],
-      };
+        };
 
       // 绘制图表
       myChart.setOption(option);
@@ -512,143 +546,150 @@ export default {
     ageBar () {
       let myChart = this.$echarts.init(this.$refs["age"]);
       let option = {
+             tooltip: {
+              trigger: "item",
+              formatter: "{a} <br/>{b}: {c} ({d}%)",
+            },
              legend: {
-          itemHeight: 7,
-          itemWidth: 7,
-          bottom: '1%',
-          left: 'center',
-          textStyle: {
-            color: "#FFFFFF",
-            fontSize: 12,
-          },
-        },
-         graphic: {
-            type: "text",
-            left: "100",
-            top: "75",
-            style: {
-                text: "年龄",
-                textAlign: "center",
-                fill: "#02D3E9",
-            }
-        },
-        series: [
-          {
-            type: "pie",
-            radius: ["50%", "70%"],
-            center: ["50%", "40%"],
-            avoidLabelOverlap: false,
-            label: {
-              show: false,
-              position: "center",
-            },
-            itemStyle: {
-              emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              },
-              normal:{
-                color: ((params) => {
-                //自定义颜色
-                let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
-                  return colorList[params.dataIndex]
-                })
-              }
-            },
-            emphasis: {
-              label: {
-                show: true,
-                fontSize: "15",
-                fontWeight: "bold",
+              itemHeight: 7,
+              itemWidth: 7,
+              bottom: '1%',
+              left: 'center',
+              textStyle: {
+                color: "#FFFFFF",
+                fontSize: 12,
               },
             },
-            labelLine: {
-              show: true,
+            graphic: {
+                type: "text",
+                left: "100",
+                top: "75",
+                style: {
+                    text: "年龄",
+                    textAlign: "center",
+                    fill: "#02D3E9",
+                }
             },
-            data: [
-              { value: 1245, name: "30岁及以下" },
-              { value: 208, name: "31-35周岁" },
-              { value: 148, name: "35-40周岁" },
-              { value: 148, name: "40周岁以上" },
+            series: [
+              {
+                type: "pie",
+                name: "年龄",
+                radius: ["50%", "70%"],
+                center: ["50%", "40%"],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: "center",
+                },
+                itemStyle: {
+                  emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  },
+                  normal:{
+                    color: ((params) => {
+                    //自定义颜色
+                    let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
+                      return colorList[params.dataIndex]
+                    })
+                  }
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: "15",
+                    fontWeight: "bold",
+                  },
+                },
+                labelLine: {
+                  show: true,
+                },
+                data: [
+                  { value: 1245, name: "30岁及以下" },
+                  { value: 208, name: "31-35周岁" },
+                  { value: 148, name: "35-40周岁" },
+                  { value: 148, name: "40周岁以上" },
+                ],
+              },
             ],
-          },
-        ],
-      };
-      // 绘制图表
-      myChart.setOption(option);
-      window.addEventListener("resize", () => {
-        myChart.resize();
-      });
-    },
-    // 专业拼图
+          };
+          // 绘制图表
+          myChart.setOption(option);
+          window.addEventListener("resize", () => {
+            myChart.resize();
+          });
+        },
+    // 职务拼图
     professionBar () {
       let myChart = this.$echarts.init(this.$refs["profession"]);
       let option = {
+            tooltip: {
+                trigger: "item",
+                formatter: "{a} <br/>{b}: {c} ({d}%)",
+              },
              legend: {
-          itemHeight: 7,
-          itemWidth: 7,
-          bottom: '1%',
-        //   top: "5%",
-        //   left:
-        //   left: 'center',
-          textStyle: {
-            color: "#FFFFFF",
-            fontSize: 12,
-          },
-        },
-         graphic: {
-            type: "text",
-            left: "100",
-            top: "75",
-            style: {
-                text: "职务",
-                textAlign: "center",
-                fill: "#02D3E9",
-            }
-        },
-        series: [
-          {
-            type: "pie",
-            radius: ["50%", "70%"],
-            center: ["50%", "40%"],
-            avoidLabelOverlap: false,
-            label: {
-              show: false,
-              position: "center",
-            },
-            itemStyle: {
-              emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              },
-              normal:{
-                color: ((params) => {
-                //自定义颜色
-                let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
-                  return colorList[params.dataIndex]
-                })
-              }
-            },
-            emphasis: {
-              label: {
-                show: true,
-                fontSize: "15",
-                fontWeight: "bold",
+              itemHeight: 7,
+              itemWidth: 7,
+              bottom: '1%',
+              textStyle: {
+                color: "#FFFFFF",
+                fontSize: 12,
               },
             },
-            labelLine: {
-              show: true,
+            graphic: {
+                type: "text",
+                left: "100",
+                top: "75",
+                style: {
+                    text: "职务",
+                    textAlign: "center",
+                    fill: "#02D3E9",
+                }
             },
-            data: [
-              { value: 145, name: "中层干部及以上" },
-              { value: 208, name: "三级经理" },
-              { value: 248, name: "小CEO" },
-              { value: 148, name: "普通合同制员工" },
+            series: [
+              {
+                type: "pie",
+                name: "职务",
+                radius: ["50%", "70%"],
+                center: ["50%", "40%"],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: "center",
+                },
+                itemStyle: {
+                  emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  },
+                  normal:{
+                    color: ((params) => {
+                    //自定义颜色
+                    let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
+                      return colorList[params.dataIndex]
+                    })
+                  }
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: "15",
+                    fontWeight: "bold",
+                  },
+                },
+                labelLine: {
+                  show: true,
+                },
+                data: [
+                  { value: 145, name: "中层干部及以上" },
+                  { value: 208, name: "三级经理" },
+                  { value: 248, name: "小CEO" },
+                  { value: 148, name: "普通合同制员工" },
+                ],
+              },
             ],
-          },
-        ],
             };
             // 绘制图表
             myChart.setOption(option);
@@ -660,68 +701,73 @@ export default {
     talentBar(){
          let myChart = this.$echarts.init(this.$refs["talent"]);
       let option = {
+            tooltip: {
+              trigger: "item",
+              formatter: "{a} <br/>{b}: {c} ({d}%)",
+            },
              legend: {
-          itemHeight: 7,
-          itemWidth: 7,
-          bottom: '3%',
-          left: 'center',
-          textStyle: {
-            color: "#FFFFFF",
-            fontSize: 12,
-          },
-        },
-         graphic: {
-            type: "text",
-            left: "100",
-            top: "75",
-            style: {
-                text: "人才",
-                textAlign: "center",
-                fill: "#02D3E9",
-            }
-        },
-        series: [
-          {
-            type: "pie",
-            radius: ["50%", "70%"],
-            center: ["50%", "40%"],
-            avoidLabelOverlap: false,
-            label: {
-              show: false,
-              position: "center",
-            },
-            itemStyle: {
-              emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              },
-              normal:{
-                color: ((params) => {
-                //自定义颜色
-                let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
-                  return colorList[params.dataIndex]
-                })
-              }
-            },
-            emphasis: {
-              label: {
-                show: true,
-                fontSize: "15",
-                fontWeight: "bold",
+              itemHeight: 7,
+              itemWidth: 7,
+              bottom: '3%',
+              left: 'center',
+              textStyle: {
+                color: "#FFFFFF",
+                fontSize: 12,
               },
             },
-            labelLine: {
-              show: true,
+            graphic: {
+                type: "text",
+                left: "100",
+                top: "75",
+                style: {
+                    text: "人才",
+                    textAlign: "center",
+                    fill: "#02D3E9",
+                }
             },
-            data: [
-              { value: 145, name: "领军人才" },
-              { value: 208, name: "专家人才 " },
-              { value: 148, name: "骨干人才" },
-              { value: 148, name: "新锐人才" },
+            series: [
+              {
+                type: "pie",
+                name: "人才",
+                radius: ["50%", "70%"],
+                center: ["50%", "40%"],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: "center",
+                },
+                itemStyle: {
+                  emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  },
+                  normal:{
+                    color: ((params) => {
+                    //自定义颜色
+                    let colorList = ['#21B1FE ', '#FDAD01', '#F63D8E', '#51FF98'];
+                      return colorList[params.dataIndex]
+                    })
+                  }
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: "15",
+                    fontWeight: "bold",
+                  },
+                },
+                labelLine: {
+                  show: true,
+                },
+                data: [
+                  { value: 145, name: "领军人才" },
+                  { value: 208, name: "专家人才 " },
+                  { value: 148, name: "骨干人才" },
+                  { value: 148, name: "新锐人才" },
+                ],
+              },
             ],
-          },
-        ],
             };
             // 绘制图表
             myChart.setOption(option);
@@ -886,6 +932,7 @@ export default {
             data: [380, 350, 320, 340, 360, 380, 370],
             type: "bar",
             barMaxWidth: 10,
+            showBackground: true,
             smooth: true,
             itemStyle: {
               emphasis: {
@@ -1001,7 +1048,444 @@ export default {
         myChart.resize();
       });
     },
-    // 政企下级
+    // 智慧沃商工程师
+    yoshoBar () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["yosho"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: -5,
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "南区",
+            "北区",
+            "西区",
+            "东区",
+            "闵行",
+            "宝山",
+            "青浦",
+            "奉贤",
+            "嘉定",
+            "松江",
+            "金山",
+            "崇明",
+            "临港",
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340, 360, 380, 370, 320, 330, 350, 310, 360, 355] ,
+            type: "bar",
+            barMaxWidth: 10,
+            smooth: true,
+            showBackground: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#91D4FE" },
+                  { offset: 1, color: "#0AAEFF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+     // 智慧家庭工程师
+    familyBar () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["family"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: -5,
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "南区",
+            "北区",
+            "西区",
+            "东区",
+            "闵行",
+            "宝山",
+            "青浦",
+            "奉贤",
+            "嘉定",
+            "松江",
+            "金山",
+            "崇明",
+            "临港",
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340, 360, 380, 370, 320, 330, 350, 310, 360, 355] ,
+            type: "bar",
+            barMaxWidth: 10,
+            smooth: true,
+            showBackground: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#91D4FE" },
+                  { offset: 1, color: "#0AAEFF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 科创人才
+    divisionBar(){
+        // if(this.activeName == 3){
+      let myChart = this.$echarts.init(this.$refs.division);
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: -5,
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "政企线",
+            "市场线",
+            "网络线",
+            "数字化线",
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340] ,
+            type: "bar",
+            barMaxWidth: 10,
+            showBackground: true,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#91D4FE" },
+                  { offset: 1, color: "#0AAEFF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+      
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 研发人员
+    researchBar(){
+        // if(this.activeName == 3){
+      let myChart = this.$echarts.init(this.$refs.research);
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: -5,
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "政企线",
+            "市场线",
+            "网络线",
+            "数字化线",
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340] ,
+            type: "bar",
+            barMaxWidth: 10,
+            showBackground: true,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#91D4FE" },
+                  { offset: 1, color: "#0AAEFF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+      
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 政企上级
+    superiorBar(){
+       let myChart = this.$echarts.init(this.$refs['superior']);
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: -5,
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "金融科技",
+            "云网生态",
+            "现代服务",
+            "交通物流",
+            "智慧城市",
+            "智能制造",
+            "教育医卫",
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340, 360, 350,340] ,
+            type: "bar",
+            barMaxWidth: 10,
+            showBackground: true,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#91D4FE" },
+                  { offset: 1, color: "#0AAEFF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+      
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+     // 政企下级
     governmentBar () {
       //初始化容器
       let myChart = this.$echarts.init(this.$refs["government"]);
@@ -1070,6 +1554,7 @@ export default {
             data: [380, 350, 320, 340, 360, 380, 370, 320, 330, 350, 310, 360, 355] ,
             type: "bar",
             barMaxWidth: 10,
+            showBackground: true,
             smooth: true,
             itemStyle: {
               emphasis: {
@@ -1093,184 +1578,15 @@ export default {
         myChart.resize();
       });
     },
-    // 科创人才
-    divisionBar(){
-      let myChart = this.$echarts.init(this.$refs['division']);
-      let option = {
-        grid: {
-          x: 35,
-          y: 25,
-          x2: -5,
-          borderWidth: 1,
-        },
-        xAxis: {
-          type: "category",
-          data: [
-            "南区",
-            "北区",
-            "西区",
-            "东区",
-          ],
-          axisLabel: {
-            show: true,
-
-            interval: 0,
-            textStyle: {
-              fontSize: 12,
-              color: "#8ED8FF",
-            },
-          },
-          axisLine: {
-            lineStyle: {
-                color: '#506BFF',
-                width: 0.1,
-            }
-          },
-        },
-        yAxis: {
-          type: "value",
-          max: 500,
-          axisLabel: {
-            show: true,
-            textStyle: {
-              fontSize: 12,
-              color: "#8ED8FF",
-            },
-          },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              width: 0.5,
-              color: "#506BFF",
-            },
-          },
-        },
-        series: [
-          {
-            // name: "合同制",
-            data: [380, 350, 320, 340] ,
-            type: "bar",
-            barMaxWidth: 10,
-            smooth: true,
-            itemStyle: {
-              emphasis: {
-                barBorderRadius: 10,
-              },
-              normal: {
-                barBorderRadius: 2,
-                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  { offset: 0, color: "#91D4FE" },
-                  { offset: 1, color: "#0AAEFF" },
-                ]),
-              },
-            },
-          },
-        ],
-      };
-      
-      //设置成功
-      myChart.setOption(option);
-      window.addEventListener("resize", () => {
-        myChart.resize();
-      });
-            
-    },
-    // 政企上级
-    superiorBar(){
-       let myChart = this.$echarts.init(this.$refs['superior']);
-      let option = {
-        grid: {
-          x: 35,
-          y: 25,
-          x2: -5,
-          borderWidth: 1,
-        },
-        xAxis: {
-          type: "category",
-          data: [
-            "金融科技",
-            "云网生态",
-            "现代服务",
-            "交通物流",
-            "智慧城市",
-            "智能制造",
-            "教育医卫",
-          ],
-          axisLabel: {
-            show: true,
-
-            interval: 0,
-            textStyle: {
-              fontSize: 12,
-              color: "#8ED8FF",
-            },
-          },
-          axisLine: {
-            lineStyle: {
-                color: '#506BFF',
-                width: 0.1,
-            }
-          },
-        },
-        yAxis: {
-          type: "value",
-          max: 500,
-          axisLabel: {
-            show: true,
-            textStyle: {
-              fontSize: 12,
-              color: "#8ED8FF",
-            },
-          },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              width: 0.5,
-              color: "#506BFF",
-            },
-          },
-        },
-        series: [
-          {
-            // name: "合同制",
-            data: [380, 350, 320, 340, 360, 350,340] ,
-            type: "bar",
-            barMaxWidth: 10,
-            smooth: true,
-            itemStyle: {
-              emphasis: {
-                barBorderRadius: 10,
-              },
-              normal: {
-                barBorderRadius: 2,
-                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  { offset: 0, color: "#91D4FE" },
-                  { offset: 1, color: "#0AAEFF" },
-                ]),
-              },
-            },
-          },
-        ],
-      };
-      
-      //设置成功
-      myChart.setOption(option);
-      window.addEventListener("resize", () => {
-        myChart.resize();
-      });
-    },
-     // 学历拼图
-    superiorPie() {
-      let myChart = this.$echarts.init(this.$refs["enterprise"]);
+    // 科创
+    innovationPie() {
+      let myChart = this.$echarts.init(this.$refs["innovation"]);
       let option = {
         tooltip: {
           trigger: "item",
           formatter: "{a} <br/>{b}: {c} ({d}%)",
         },
         legend: {
-          // itemHeight: 7,
-          // itemWidth: 7,
-          // bottom: '3%',
           orient: "vertical",
           icon:"circle",
           align:"left",
@@ -1285,6 +1601,149 @@ export default {
         series: [
           {
             type: "pie",
+            name: "政企上级",
+            radius: ["45%", "80%"],
+            center: ["40%", "40%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: "center",
+            },
+            itemStyle: {
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              },
+              normal:{
+                color: ((params) => {
+                //自定义颜色
+                let colorList = [ '#DE3C56','#51FD97','#8064A2','#F79646'];
+                  return colorList[params.dataIndex]
+                })
+              }
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "15",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: [
+              { value: 145, name: "政企线" },
+              { value: 208, name: "市场线" },
+              { value: 148, name: "网格线" },
+              { value: 148, name: "数字化线" },
+            ],
+          },
+        ],
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 研发
+    researchPie() {
+      let myChart = this.$echarts.init(this.$refs["develop"]);
+      let option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        legend: {
+          orient: "vertical",
+          icon:"circle",
+          align:"left",
+          right:20,
+          y: "center",
+          itemWidth:8,
+          textStyle: {
+            color: "#FFFFFF",
+            fontSize: 12,
+          },
+        },
+        series: [
+          {
+            type: "pie",
+            name: "政企上级",
+            radius: ["45%", "80%"],
+            center: ["40%", "40%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: "center",
+            },
+            itemStyle: {
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              },
+              normal:{
+                color: ((params) => {
+                //自定义颜色
+                let colorList = [ '#DE3C56','#51FD97','#8064A2','#F79646'];
+                  return colorList[params.dataIndex]
+                })
+              }
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "15",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: [
+              { value: 145, name: "科创" },
+              { value: 208, name: "自研" },
+              { value: 148, name: "政府" },
+              { value: 148, name: "运营" },
+            ],
+          },
+        ],
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+     // 政企上级
+    superiorPie() {
+      let myChart = this.$echarts.init(this.$refs["enterprise"]);
+      let option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        legend: {
+          orient: "vertical",
+          icon:"circle",
+          align:"left",
+          right:20,
+          y: "center",
+          itemWidth:8,
+          textStyle: {
+            color: "#FFFFFF",
+            fontSize: 12,
+          },
+        },
+        series: [
+          {
+            type: "pie",
+            name: "政企上级",
             radius: ["45%", "80%"],
             center: ["40%", "40%"],
             avoidLabelOverlap: false,
@@ -1324,6 +1783,246 @@ export default {
               { value: 148, name: "智慧城市" },
               { value: 148, name: "智能制造" },
               { value: 148, name: "教育医卫" },
+            ],
+          },
+        ],
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+     // 政企下级
+    subordinatesPie() {
+      let myChart = this.$echarts.init(this.$refs["subordinates"]);
+      let option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        legend: {
+          orient: "vertical",
+          icon:"circle",
+          align:"left",
+          right:20,
+          y: "center",
+          itemWidth:8,
+          textStyle: {
+            color: "#FFFFFF",
+            fontSize: 12,
+          },
+        },
+        series: [
+          {
+            type: "pie",
+            name: "政企上级",
+            radius: ["45%", "80%"],
+            center: ["40%", "40%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: "center",
+            },
+            itemStyle: {
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              },
+              normal:{
+                color: ((params) => {
+                //自定义颜色
+                let colorList = ['#4A5CC7 ', '#15299C', '#236D22','#0E0C76', '#DE3C56','#51FD97','#530A8D','#9BBB59','#4BACC5','#8064A2','#F79646','#2C4D75','#772B2A'];
+                  return colorList[params.dataIndex]
+                })
+              }
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "15",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: [
+              { value: 145, name: "南区" },
+              { value: 208, name: "北区" },
+              { value: 148, name: "西区" },
+              { value: 148, name: "东区" },
+              { value: 148, name: "闵行区" },
+              { value: 148, name: "宝山区" },
+              { value: 148, name: "青浦区" },
+              { value: 148, name: "奉贤区" },
+              { value: 148, name: "嘉定区" },
+              { value: 148, name: "松江区" },
+              { value: 148, name: "金山区" },
+              { value: 148, name: "崇明区" },
+              { value: 148, name: "临港" },
+            ],
+          },
+        ],
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 智慧沃商工程师
+    smartPie() {
+      let myChart = this.$echarts.init(this.$refs["smart"]);
+      let option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        legend: {
+          orient: "vertical",
+          icon:"circle",
+          align:"left",
+          right:20,
+          y: "center",
+          itemWidth:8,
+          textStyle: {
+            color: "#FFFFFF",
+            fontSize: 12,
+          },
+        },
+        series: [
+          {
+            type: "pie",
+            name: "政企上级",
+            radius: ["45%", "80%"],
+            center: ["40%", "40%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: "center",
+            },
+            itemStyle: {
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              },
+              normal:{
+                color: ((params) => {
+                //自定义颜色
+                let colorList = ['#4A5CC7 ', '#15299C', '#236D22','#0E0C76', '#DE3C56','#51FD97','#530A8D','#9BBB59','#4BACC5','#8064A2','#F79646','#2C4D75','#772B2A'];
+                  return colorList[params.dataIndex]
+                })
+              }
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "15",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: [
+              { value: 145, name: "南区" },
+              { value: 208, name: "北区" },
+              { value: 148, name: "西区" },
+              { value: 148, name: "东区" },
+              { value: 148, name: "闵行区" },
+              { value: 148, name: "宝山区" },
+              { value: 148, name: "青浦区" },
+              { value: 148, name: "奉贤区" },
+              { value: 148, name: "嘉定区" },
+              { value: 148, name: "松江区" },
+              { value: 148, name: "金山区" },
+              { value: 148, name: "崇明区" },
+              { value: 148, name: "临港" },
+            ],
+          },
+        ],
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+     // 智慧沃商工程师
+    homeEngineerPie() {
+      let myChart = this.$echarts.init(this.$refs["homeEngineer"]);
+      let option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        legend: {
+          orient: "vertical",
+          icon:"circle",
+          align:"left",
+          right:20,
+          y: "center",
+          itemWidth:8,
+          textStyle: {
+            color: "#FFFFFF",
+            fontSize: 12,
+          },
+        },
+        series: [
+          {
+            type: "pie",
+            name: "政企上级",
+            radius: ["45%", "80%"],
+            center: ["40%", "40%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: "center",
+            },
+            itemStyle: {
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              },
+              normal:{
+                color: ((params) => {
+                //自定义颜色
+                let colorList = ['#4A5CC7 ', '#15299C', '#236D22','#0E0C76', '#DE3C56','#51FD97','#530A8D','#9BBB59','#4BACC5','#8064A2','#F79646','#2C4D75','#772B2A'];
+                  return colorList[params.dataIndex]
+                })
+              }
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "15",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: [
+              { value: 145, name: "南区" },
+              { value: 208, name: "北区" },
+              { value: 148, name: "西区" },
+              { value: 148, name: "东区" },
+              { value: 148, name: "闵行区" },
+              { value: 148, name: "宝山区" },
+              { value: 148, name: "青浦区" },
+              { value: 148, name: "奉贤区" },
+              { value: 148, name: "嘉定区" },
+              { value: 148, name: "松江区" },
+              { value: 148, name: "金山区" },
+              { value: 148, name: "崇明区" },
+              { value: 148, name: "临港" },
             ],
           },
         ],
@@ -1381,7 +2080,7 @@ export default {
 .headLogo{
     height: 42px;
     width: 75px;
-    margin-left:20px;
+    margin-left: 20px;
     background: url("../assets/hrFront/logo.png") 100%;
 }
 .fullBoreBar{
@@ -1450,7 +2149,7 @@ export default {
         color: #F64454;
         letter-spacing: 0;
         line-height: 24px;
-        margin-left: 61px;
+        margin-left: 50px;
     }
     
 }
@@ -1469,7 +2168,7 @@ export default {
     color: #0FFD8F;
     letter-spacing: 0;
     line-height: 24px;
-    margin-left: 80px;
+    margin-left: 5px;
     // margin-top: 10px;
 }
 .laborRate{
@@ -1627,21 +2326,46 @@ export default {
 .ranking{
     width: 800px;
     margin-top: 20px;
-    margin-left: 35px;
-  span{
-      font-family: PingFangSC-Regular;
-        font-size: 14px;
-        color: #FFFFFF;
-        letter-spacing: 0;
-        line-height: 14px;
-  } 
+    margin-left: 40px;
+  // span{
+      
+  // } 
 
 }
+.leftRank{
+  font-family: DS-DIGII;
+  font-size: 60px;
+  color: #F6FF1C;
+  letter-spacing: 0;
+  text-align: right;
+  line-height: 60px;
+  margin-left: 10px;
+}
+
+.rightRank{
+  font-family: DS-DIGII;
+  font-size: 60px;
+  color: #1FFF39;
+  letter-spacing: 0;
+  text-align: right;
+  line-height: 60px;
+  margin-left: 25px;
+}
 .national{
-    margin: 0px 0 20px 15%;
+    margin: 0px 0 0px 40px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 14px;
   }
   .south{
     margin-left: 55%;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 14px;
   }
 /deep/.el-card {
   // opacity: 0.6;
@@ -1666,7 +2390,7 @@ export default {
   margin-top:10px;
 }
 .perCapita{
-  width: 121px;
+  width: 110px;
   height: 74px;
   font-family: PingFangSC-Regular;
   font-size: 14px;
