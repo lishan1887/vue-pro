@@ -5,8 +5,8 @@ Vue.use(VueRouter)
 const routesMap = [
   {
     path:"/",
-    name:'HrScreen',
-    component:() => import('../page/hrScreen.vue'),
+    name:'HrFront',
+    component:() => import('../page/hrFront.vue'),
   },
   {
     path:"/page/organizational",
@@ -24,14 +24,14 @@ const routesMap = [
     },
     component:() => import('../page/management.vue'),
   },
-  {
-    path:"/page/hrFront",
-    name:'HrFront',
-    meta: {
-      title: '组织指标',
-    },
-    component:() => import('../page/hrFront.vue'),
-  }
+  // {
+  //   path:"/page/hrScreen",
+  //   name:'hrScreen',
+  //   meta: {
+  //     title: '组织指标',
+  //   },
+  //   component:() => import('../page/hrScreen.vue'),
+  // }
 ]
 
 const router = new VueRouter({
