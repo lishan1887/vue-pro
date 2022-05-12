@@ -2,5 +2,5 @@
     font-style: normal;
     font-weight: normal;
     font-family: DS-DIGII;
-    src: url("DS-DIGII.TTF");
+    src: url("./LcdD.TTF") format('truetype');
 }

@@ -2333,7 +2333,7 @@ export default {
 
 }
 .leftRank{
-  font-family: DS-DIGII;
+  font-family: LcdD;
   font-size: 60px;
   color: #F6FF1C;
   letter-spacing: 0;
