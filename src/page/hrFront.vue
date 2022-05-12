@@ -21,10 +21,10 @@
           <div class="fullBoreBar">
               <div class="fullBore">
                   <p>全口径</p>
-                  <span>6000<p style="padding: 10px 0px 0px 10px">人</p></span>
+                  <span>6000<p style="padding: 10px 0px 0px 15px">人</p></span>
               </div> 
               <div>
-                    <div ref="comparison" style="height: 200px; width: 200px"></div>
+                    <div ref="comparison" style="height: 170px; width: 240px"></div>
               </div>
           </div>
         
@@ -32,17 +32,17 @@
               <div class="leftFull">
                   <p class="leftFullWr">合同制</p>
                   <span>3287<span style="font-size: 12px;">人</span></span>
-                  <div class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span>
+                  <div class="leftFullWr" style="margin:10px 0 0 20px">同比 <span class="yearOnYear">12.4%</span>
                     <img src="../assets/hrFront/addPic.png"  height="24px" style="margin-left:3px"/>
                   </div>
                   <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span>
                     <img src="../assets/hrFront/reduce.png"  height="24px" style="margin-left:5px"/>
                   </p>
               </div>
-              <div class="leftFull" style="margin-left:10px">
+              <div class="leftFull" style="margin-left:20px">
                   <p class="leftFullWr">紧密型外包</p>
                   <span>3287<span style="font-size: 12px;">人</span></span>
-                  <p class="leftFullWr" style="margin:20px 0 0 20px">同比 <span class="yearOnYear">12.4%</span>
+                  <p class="leftFullWr" style="margin:10px 0 0 20px">同比 <span class="yearOnYear">12.4%</span>
                     <img src="../assets/hrFront/addPic.png"  height="24px" style="margin-left:3px"/>
                   </p>
                   <p class="leftFullWr" style="margin:10px 0 28px 20px">环比<span  class="yearOnYear" style="color: #0FFD8F;">3.66%</span>
@@ -72,19 +72,17 @@
       <el-col :span="12">
         <div class="card">
         <!-- <el-card class="card"> -->
-          <div slot="header" >
-                
-                <div class="central">人员效能</div>
-                <div style="margin-left:35px;">
-                  <img src="../assets/hrFront/central.png"  width="800px" />
-                </div>
-                
+          <div > 
+            <div class="central">人员效能</div>
+            <div style="text-align:center">
+              <img src="../assets/hrFront/central.png"  width="950px" />
+            </div>
                 <div class="ranking">
                   <span class="leftRank">05</span> 
                   <span class="national">全国排名</span>
                   <span class="south">南方排名</span>
                   <span class="rightRank">02</span> 
-                  <img src="../assets/hrFront/ranking.png" width="800px" height="20px"/>
+                  <img src="../assets/hrFront/ranking.png" width="950px" height="20px"/>
                  
                 </div>
                 <div class="centralPic">
@@ -95,7 +93,7 @@
                         <span class="percent">3.66%</span>
                       </div>
                       <div class="chainMiddle">
-                        <span class="percentageNum">78.52<span class="percentage">%</span></span>
+                        <span class="percentageNum">78.52<p class="percentage" style="margin-top:-135px">%</p></span>
                         <p class="laborRate">全员劳产率</p>
                       </div>
                       <div class="chainRight">
@@ -105,25 +103,25 @@
                       </div>
                     </div>
                     <div class="science">
-                      <div class="scienceNum" style="margin: -100px 0 0px 60px;">
-                        <span class="percentageNum">78.52<span class="percentage">%</span></span>
-                        <p class="laborRate" style="margin-top:-85px">科创人才占比</p>
+                      <div class="scienceNum" style="margin: -100px 0 0px 80px;">
+                        <span class="percentageNum">78.52<p class="percentage">%</p></span>
+                        <p class="laborRate" style="margin-top:15px">科创人才占比</p>
                       </div>
-                      <div class="scienceNum" style="margin: 10px 0 0 80px;">
-                        <span class="percentageNum">78.52<span class="percentage">%</span></span>
-                        <p class="laborRate" style="margin-top:-85px">人工成本利润率</p>
+                      <div class="scienceNum" style="margin: 10px 0 0 95px;">
+                        <span class="percentageNum">78.52<p class="percentage">%</p></span>
+                        <p class="laborRate" style="margin-top:15px">人工成本利润率</p>
                       </div>
-                      <div class="scienceNum" style="margin: -100px 0 0px 90px;">
-                        <span class="percentageNum">78.52<span class="percentage">万/人</span></span>
-                        <p class="laborRate" style="margin-top:-85px">人均创收</p>
+                      <div class="scienceNum" style="margin: -100px 0 0px 50px;">
+                        <span class="percentageNum">78.52<p class="percentage">万/人</p></span>
+                        <p class="laborRate" style="margin-top:15px">人均创收</p>
                       </div>
                     </div>
-                    <div class="central" style="margin-top:20px">人员效能</div>
-                    <div style="margin-left:35px;">
-                      <img src="../assets/hrFront/central.png"  width="800px" />
+                    <div class="central" style="margin-top:10px">人效分析</div>
+                    <div >
+                      <img src="../assets/hrFront/central.png"  width="950px" />
                     </div>
                 </div>
-              <div class="analyze">
+              <div class="analyze" style="width:950px">
                 <div>
                   <div>
                     <img src="../assets/hrFront/resultLeft.png" width="6px" height="10px"/>
@@ -135,7 +133,7 @@
                     <div class="perCapita opportunities" style="margin-left:10px" @click="marketingClick(2)" :class="{actionsColor:clickColor==2}">客户收入覆盖率</div>
                   </div>
                   <div>
-                     <div ref="perCapitaIncome" style="height: 280px; width: 250px" v-show="clickColor==1"></div>
+                     <div ref="perCapitaIncome" style="height: 170px; width: 250px" v-show="clickColor==1"></div>
                   </div>
                 </div>
                 <div>
@@ -154,7 +152,7 @@
                       <div class="deliveryRate opportunities" style="margin-left:10px" @click="processClick(4)" :class="{actionsColor:processColor==4}">人均客户拜访数</div>
                     </div>
                     <div>
-                      <div ref="business" style="height: 280px; width: 250px"></div>
+                      <div ref="business" style="height: 170px; width: 290px"></div>
                     </div>
                   <!-- </div> -->
                 </div>
@@ -176,7 +174,7 @@
                         </div>
                     </div>
                     <div>
-                      <div ref="team" style="height: 280px; width: 250px"></div>
+                      <div ref="team" style="height: 170px; width: 290px"></div>
                     </div>
                   </div>
                 <!-- </div> -->
@@ -231,19 +229,19 @@
             <img src="../assets/hrFront/resultRight.png" width="6px" height="10px"/>
           </div>
           <div >
-            <div ref="division" style="height: 200px; width: 400px" v-show="activeName==1"></div>
-            <div ref="research" style="height: 200px; width: 400px" v-show="activeName==2"></div>
-            <div ref="superior" style="height: 200px; width: 400px" v-show="activeName==3"></div>
-            <div ref="government" style="height: 200px; width: 400px" v-show="activeName==4"></div>
-            <div ref="yosho" style="height: 200px; width: 400px" v-show="activeName==5"></div>
-            <div ref="family" style="height: 200px; width: 400px" v-show="activeName==6"></div>
+            <div ref="division" style="height: 170px; width: 400px" v-show="activeName==1"></div>
+            <div ref="research" style="height: 170px; width: 400px" v-show="activeName==2"></div>
+            <div ref="superior" style="height: 170px; width: 400px" v-show="activeName==3"></div>
+            <div ref="government" style="height: 170px; width: 400px" v-show="activeName==4"></div>
+            <div ref="yosho" style="height: 170px; width: 400px" v-show="activeName==5"></div>
+            <div ref="family" style="height: 170px; width: 400px" v-show="activeName==6"></div>
           </div>
-          <div ref="innovation" style="height: 200px; width: 400px" v-show="activeName==1"></div>
-          <div ref="develop" style="height: 200px; width: 400px" v-show="activeName==2"></div>
-          <div ref="enterprise" style="width:400px;height:180px;" v-show="activeName==3"></div>
-          <div ref="subordinates" style="width:400px;height:180px;" v-show="activeName==4"></div>
-          <div ref="smart" style="width:400px;height:180px;" v-show="activeName==5"></div>
-          <div ref="homeEngineer" style="width:400px;height:180px;" v-show="activeName==6"></div>
+          <div ref="innovation" style="height: 150px; width: 400px" v-show="activeName==1"></div>
+          <div ref="develop" style="height: 150px; width: 400px" v-show="activeName==2"></div>
+          <div ref="enterprise" style="width:400px;height:150px;" v-show="activeName==3"></div>
+          <div ref="subordinates" style="width:400px;height:150px;" v-show="activeName==4"></div>
+          <div ref="smart" style="width:400px;height:150px;" v-show="activeName==5"></div>
+          <div ref="homeEngineer" style="width:400px;height:150px;" v-show="activeName==6"></div>
         </div>
         <!-- </el-card> -->
         <div class="cardRightLower">
@@ -251,7 +249,7 @@
               <p class="line" style="margin-left:320px">人才引擎</p>
               <img src="../assets/hrFront/rightTitle.png"  height="20px"  width="420px"/>  
             </div>
-            <div class="fullBoreBar"  style="margin-top:30px">
+            <div class="fullBoreBar"  style="margin-top:10px">
               <div>
                 <div class="fullBoreBar">
                   <div class="intelligence">人工智能</div>
@@ -270,11 +268,11 @@
               <div>
                 <p class="intelligent">人工智能</p>
                 <div class="artificial">
-                  <span class="leftFullWr">实有</span>
+                  <span class="leftFullWr" style="margin:10px 0 0 5px">实有</span>
                   <span class="number" style="margin-left:40px">465<span class="result">人</span></span>
                 </div>
                 <div class="artificial" >
-                  <span class="leftFullWr" >在岗</span>
+                  <span class="leftFullWr" style="margin:10px 0 0 5px">在岗</span>
                   <span class="number"  style="margin-left:40px">433<span class="result">人</span></span>
                 </div>
               </div>
@@ -360,7 +358,7 @@ export default {
         grid: {
           x: 50,
           y: 35,
-          x2: 10,
+          // x2: 10,
           y2: 25,
           borderWidth: 1,
         },
@@ -484,7 +482,7 @@ export default {
             graphic: {
                 type: "text",
                 left: "100",
-                top: "75",
+                top: "50",
                 style: {
                     text: "学历",
                     textAlign: "center",
@@ -495,8 +493,8 @@ export default {
               {
                 type: "pie",
                 name: "学历",
-                radius: ["50%", "70%"],
-                center: ["50%", "40%"],
+                radius: ["40%", "60%"],
+                center: ["50%", "35%"],
                 avoidLabelOverlap: false,
                 label: {
                   show: false,
@@ -563,7 +561,7 @@ export default {
             graphic: {
                 type: "text",
                 left: "100",
-                top: "75",
+                top: "50",
                 style: {
                     text: "年龄",
                     textAlign: "center",
@@ -574,8 +572,8 @@ export default {
               {
                 type: "pie",
                 name: "年龄",
-                radius: ["50%", "70%"],
-                center: ["50%", "40%"],
+                radius: ["40%", "60%"],
+                center: ["50%", "35%"],
                 avoidLabelOverlap: false,
                 label: {
                   show: false,
@@ -640,7 +638,7 @@ export default {
             graphic: {
                 type: "text",
                 left: "100",
-                top: "75",
+                top: "50",
                 style: {
                     text: "职务",
                     textAlign: "center",
@@ -651,8 +649,8 @@ export default {
               {
                 type: "pie",
                 name: "职务",
-                radius: ["50%", "70%"],
-                center: ["50%", "40%"],
+                radius: ["40%", "60%"],
+                center: ["50%", "35%"],
                 avoidLabelOverlap: false,
                 label: {
                   show: false,
@@ -718,7 +716,7 @@ export default {
             graphic: {
                 type: "text",
                 left: "100",
-                top: "75",
+                top: "50",
                 style: {
                     text: "人才",
                     textAlign: "center",
@@ -729,8 +727,8 @@ export default {
               {
                 type: "pie",
                 name: "人才",
-                radius: ["50%", "70%"],
-                center: ["50%", "40%"],
+                radius: ["40%", "60%"],
+                center: ["50%", "35%"],
                 avoidLabelOverlap: false,
                 label: {
                   show: false,
@@ -1603,7 +1601,7 @@ export default {
             type: "pie",
             name: "政企上级",
             radius: ["45%", "80%"],
-            center: ["40%", "40%"],
+            center: ["40%", "45%"],
             avoidLabelOverlap: false,
             label: {
               show: false,
@@ -1674,7 +1672,7 @@ export default {
             type: "pie",
             name: "政企上级",
             radius: ["45%", "80%"],
-            center: ["40%", "40%"],
+            center: ["40%", "45%"],
             avoidLabelOverlap: false,
             label: {
               show: false,
@@ -1745,7 +1743,7 @@ export default {
             type: "pie",
             name: "政企上级",
             radius: ["45%", "80%"],
-            center: ["40%", "40%"],
+            center: ["40%", "45%"],
             avoidLabelOverlap: false,
             label: {
               show: false,
@@ -1819,7 +1817,7 @@ export default {
             type: "pie",
             name: "政企上级",
             radius: ["45%", "80%"],
-            center: ["40%", "40%"],
+            center: ["40%", "45%"],
             avoidLabelOverlap: false,
             label: {
               show: false,
@@ -1899,7 +1897,7 @@ export default {
             type: "pie",
             name: "政企上级",
             radius: ["45%", "80%"],
-            center: ["40%", "40%"],
+            center: ["40%", "45%"],
             avoidLabelOverlap: false,
             label: {
               show: false,
@@ -1979,7 +1977,7 @@ export default {
             type: "pie",
             name: "政企上级",
             radius: ["45%", "80%"],
-            center: ["40%", "40%"],
+            center: ["40%", "45%"],
             avoidLabelOverlap: false,
             label: {
               show: false,
@@ -2061,8 +2059,7 @@ export default {
   background-size: 100% 100%;
 }
 .cardRightLower{
-  height: 260px;
-
+  height: 210px;
   background: url("../assets/hrFront/cardRightLower.png") center;
   background-size: 100% 100%;
   margin: 30px 0 20px 10px;
@@ -2089,7 +2086,7 @@ export default {
 }
 .fullBore{
     width: 155px;
-    height: 171px;
+    height: 160px;
     margin-top: 15px;
     background: url("../assets/hrFront/fullBore.png") 100%;
     background-image: linear-gradient(90deg, #3D3299 6%, #7F54A5 97%);
@@ -2103,7 +2100,7 @@ export default {
         color: #FFFFFF;
         letter-spacing: 0;
         line-height: 14px;
-        padding: 54px 0 17px 10px; 
+        padding: 44px 0 17px 15px; 
         
     }
     span{
@@ -2122,11 +2119,12 @@ export default {
   color: #1DB1FF;
   letter-spacing: 0;
   line-height: 18px;
-  margin: 14px 0 15px 20px;
+  margin: 10px 0 15px 20px;
 }
 .leftFull{
-    height: 179px;
-    width: 230px;
+    height: 160px;
+    width: 210px;
+    margin-top:30px;
     background: url("../assets/hrFront/leftFull.png") center;
     background-size: 100% 100%;
     // background: rgba(0,48,102,0.20);
@@ -2157,8 +2155,9 @@ export default {
   width: 185px;
   height: 62px;
   background: url("../assets/hrFront/chain.png") center;
-  margin-left: 132px;
+  margin-left: 165px;
   margin-top: -40px;
+  // text-align: center;
   background-size: 100% 100%;
 
 }
@@ -2178,7 +2177,7 @@ export default {
   letter-spacing: 0;
   text-align: center;
   line-height: 14px;
-  margin-top: -90px;
+  margin-top: 35px;
 }
 .chainMiddle{
   width: 242px;
@@ -2196,6 +2195,7 @@ export default {
     letter-spacing: 0;
     text-align: center;
     line-height: 12px;
+    margin-top: -110px;
  }
 .scienceNum{
   width: 200px;
@@ -2239,11 +2239,12 @@ export default {
   } */
 
 .head {
-  height: 80px;
-  background: url("../assets/hrFront/top.png");
+  height: 60px;
+  background: url("../assets/hrFront/top.png") center;
+  background-size: 100% 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 45px;
+  margin-bottom: 35px;
   .headHr {
     font-family: PingFangSC-Semibold;
     font-size: 36px;
@@ -2251,7 +2252,7 @@ export default {
     letter-spacing: 0;
     text-align: center;
     font-weight: 600;
-    margin-top:15px
+    line-height: 60px;
     
   }
 }
@@ -2268,7 +2269,7 @@ export default {
 }
 .changeData{
   width: 260px;
-  height: 200px;
+  height: 160px;
   // background: rgba(4,32,96,0.40);
   
 }
@@ -2287,7 +2288,7 @@ export default {
     
 }
 .centralPic{
-    // width: 859px;
+    width: 950px;
     height: 400px;
     // margin-left: 24px;
     background: url("../assets/hrFront/centralPic.png") center;
@@ -2304,6 +2305,7 @@ export default {
 }
 .science{
   display: flex;
+  // text-align: center;
 }
 .line{
      font-family: PingFangSC-Medium;
@@ -2314,8 +2316,8 @@ export default {
     margin-left: 10px; 
 }
 .central{
-    width: 800px;
-    margin-left: 35px;
+    width: 950px;
+    // margin-left: 35px;
     font-family: PingFangSC-Medium;
     font-size: 18px;
     color: #FFFFFF;
@@ -2324,9 +2326,10 @@ export default {
     line-height: 18px;
 }
 .ranking{
-    width: 800px;
-    margin-top: 20px;
-    margin-left: 40px;
+    width: 950px;
+    // margin-top: 5px;
+    // text-align: center;
+    // margin-left: 40px;
   // span{
       
   // } 
@@ -2339,7 +2342,7 @@ export default {
   letter-spacing: 0;
   text-align: right;
   line-height: 60px;
-  margin-left: 10px;
+  margin-left: 35px;
 }
 
 .rightRank{
@@ -2349,7 +2352,7 @@ export default {
   letter-spacing: 0;
   text-align: right;
   line-height: 60px;
-  margin-left: 25px;
+  margin-left: 38px;
 }
 .national{
     margin: 0px 0 0px 40px;
@@ -2360,7 +2363,7 @@ export default {
     line-height: 14px;
   }
   .south{
-    margin-left: 55%;
+    margin-left:530px;
     font-family: PingFangSC-Regular;
     font-size: 14px;
     color: #FFFFFF;
@@ -2390,14 +2393,14 @@ export default {
   margin-top:10px;
 }
 .perCapita{
-  width: 110px;
-  height: 74px;
+  width: 120px;
+  height: 64px;
   font-family: PingFangSC-Regular;
   font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0;
   text-align: center;
-  line-height: 74px;
+  line-height:64px;
 }
 .opportunities{
   color: #23A1EF;
@@ -2416,13 +2419,13 @@ export default {
 }
 .deliveryRate{
   width: 140px;
-  height: 32px;
+  height: 27px;
   text-align: center;
-  line-height: 32px;
+  line-height: 27px;
 }
 .rightPic{
   width: 140px;
-  height: 75px;
+  height: 65px;
   background: url("../assets/hrFront/rightPic.png") center;
   background-size: 100% 100%;
   text-align: left;
@@ -2435,7 +2438,7 @@ export default {
 }
 .active{
     width: 140px;
-    height: 75px;
+    height: 65px;
     background: url("../assets/hrFront/rightBack.png") center;
     background-size: 100% 100%;
     
@@ -2445,20 +2448,20 @@ export default {
 }
 .leftFullNum{
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
+  font-size: 25px;
   color: #FFFFFF;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
   margin: 0 0 0  20px
 }
 .artificial{
-  width: 178px;
+  width: 162px;
   height: 54px;
   background: url("../assets/hrFront/artificial.png") center;
   background-size: 100% 100%;
   text-align: center;
   line-height: 54px;
-  margin: 20px 0 20px 0;
+  margin: 10px 15px 10px 0;
   // margin-left: 100px;
 }
 .number{
@@ -2494,21 +2497,21 @@ export default {
 }
 .capabilities{
   width: 28px;
-  height: 84px;
+  height: 64px;
   font-family: PingFangSC-Medium;
   font-size: 28px;
   color: #0447FF;
   letter-spacing: 0;
   line-height: 28px;
-  margin: 20px 0 0 10px;
+  margin: 10px 0 0 10px;
 }
 .big{
   font-family: PingFangSC-Medium;
-  font-size: 48px;
+  font-size: 40px;
   color: #14EEFF;
   letter-spacing: 0;
-  line-height: 48px;
-  margin: 20px 0 10px 0px;
+  line-height: 40px;
+  margin: 10px 0 10px 0px;
 }
 .safety{
   font-family: PingFangSC-Medium;
@@ -2516,17 +2519,17 @@ export default {
   color: #FFD52E;
   letter-spacing: 0;
   line-height: 30px;
-  margin: 16px 0 10px 15px;
+  margin: 10px 0 0px 5px;
 }
 .Internet{
-  height: 100px;
+  height: 70px;
   width: 34px;
   font-family: PingFangSC-Medium;
   font-size: 34px;
   color: #4553DC;
   letter-spacing: 0;
   line-height: 32.6px;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 .intelligent{
   font-family: PingFangSC-Medium;
