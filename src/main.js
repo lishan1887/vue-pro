@@ -9,7 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import store from './store'
 // import {getToken} from '@/util/auth'
 import * as echarts from 'echarts'
-import '@/assets/fonts/fonts.css'
+import '.././static/fonts/fonts.css'
 
 
 

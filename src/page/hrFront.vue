@@ -2,7 +2,7 @@
   <div class="BPMlist">
     <div class="head">
       
-      <div class="headLogo" style="margin-top:20px"></div>
+      <div class="headLogo" style="margin-top:10px"></div>
       <!-- <span class="headDate">
         <p >星期{{ week }}</p>
         <p>{{ date }}</p>
@@ -86,15 +86,17 @@
                  
                 </div>
                 <div class="centralPic">
+                  <!-- <div v-for="(item,index) in list" :key="index"> -->
                     <div class="science">
                       <div class="chain">
                         <p style="margin:10px 0 10px 121px;">环比</p>
                         <img src="../assets/hrFront/reduce.png"  height="24px" style="margin-left:60px"/>
                         <span class="percent">3.66%</span>
                       </div>
+                      
                       <div class="chainMiddle">
                         <span class="percentageNum">78.52<p class="percentage" style="margin-top:-135px">%</p></span>
-                        <p class="laborRate">全员劳产率</p>
+                        <p class="laborRate">{{item}}</p>
                       </div>
                       <div class="chainRight">
                         <p style="margin:10px 0 10px 40px;">同比</p>
@@ -103,23 +105,24 @@
                       </div>
                     </div>
                     <div class="science">
-                      <div class="scienceNum" style="margin: -100px 0 0px 80px;">
+                      <div class="scienceNum" style="margin: -100px 0 0px 120px;">
                         <span class="percentageNum">78.52<p class="percentage">%</p></span>
-                        <p class="laborRate" style="margin-top:15px">科创人才占比</p>
+                        <p class="laborRate" style="margin-top:15px">{{item}}</p>
                       </div>
-                      <div class="scienceNum" style="margin: 10px 0 0 95px;">
+                      <div class="scienceNum" style="margin: 10px 0 0 60px;">
                         <span class="percentageNum">78.52<p class="percentage">%</p></span>
-                        <p class="laborRate" style="margin-top:15px">人工成本利润率</p>
+                        <p class="laborRate" style="margin-top:15px">{{item}}</p>
                       </div>
                       <div class="scienceNum" style="margin: -100px 0 0px 50px;">
                         <span class="percentageNum">78.52<p class="percentage">万/人</p></span>
-                        <p class="laborRate" style="margin-top:15px">人均创收</p>
+                        <p class="laborRate" style="margin-top:15px">{{item}}</p>
                       </div>
-                    </div>
-                    <div class="central" style="margin-top:10px">人效分析</div>
-                    <div >
-                      <img src="../assets/hrFront/central.png"  width="950px" />
-                    </div>
+                  </div>
+                  <!-- </div> -->
+                  <div class="central" style="margin-top:10px">人效分析</div>
+                  <div >
+                    <img src="../assets/hrFront/central.png"  width="950px" />
+                  </div>
                 </div>
               <div class="analyze" style="width:950px">
                 <div>
@@ -134,6 +137,7 @@
                   </div>
                   <div>
                      <div ref="perCapitaIncome" style="height: 170px; width: 250px" v-show="clickColor==1"></div>
+                     <div ref="customerRate" style="height: 170px; width: 250px" v-show="clickColor==2"></div>
                   </div>
                 </div>
                 <div>
@@ -152,7 +156,10 @@
                       <div class="deliveryRate opportunities" style="margin-left:10px" @click="processClick(4)" :class="{actionsColor:processColor==4}">人均客户拜访数</div>
                     </div>
                     <div>
-                      <div ref="business" style="height: 170px; width: 290px"></div>
+                      <div ref="business" style="height: 170px; width: 290px" v-show="processColor==1"></div>
+                      <div ref="opportunityRate" style="height: 170px; width: 290px" v-show="processColor==2"></div>
+                      <div ref="humanNum" style="height: 170px; width: 290px" v-show="processColor==3"></div>
+                      <div ref="visitsNum" style="height: 170px; width: 290px" v-show="processColor==4"></div>
                     </div>
                   <!-- </div> -->
                 </div>
@@ -174,7 +181,10 @@
                         </div>
                     </div>
                     <div>
-                      <div ref="team" style="height: 170px; width: 290px"></div>
+                      <div ref="team" style="height: 170px; width: 290px" v-show="teamColor==1"></div>
+                      <div ref="attendance" style="height: 170px; width: 290px" v-show="teamColor==2"></div>
+                      <div ref="certification" style="height: 170px; width: 290px" v-show="teamColor==3"></div>
+                      <div ref="salary" style="height: 170px; width: 290px" v-show="teamColor==4"></div>
                     </div>
                   </div>
                 <!-- </div> -->
@@ -229,12 +239,12 @@
             <img src="../assets/hrFront/resultRight.png" width="6px" height="10px"/>
           </div>
           <div >
-            <div ref="division" style="height: 170px; width: 400px" v-show="activeName==1"></div>
-            <div ref="research" style="height: 170px; width: 400px" v-show="activeName==2"></div>
-            <div ref="superior" style="height: 170px; width: 400px" v-show="activeName==3"></div>
-            <div ref="government" style="height: 170px; width: 400px" v-show="activeName==4"></div>
-            <div ref="yosho" style="height: 170px; width: 400px" v-show="activeName==5"></div>
-            <div ref="family" style="height: 170px; width: 400px" v-show="activeName==6"></div>
+            <div ref="division" style="height: 170px; width: 420px" v-show="activeName==1"></div>
+            <div ref="research" style="height: 170px; width: 420px" v-show="activeName==2"></div>
+            <div ref="superior" style="height: 170px; width: 420px" v-show="activeName==3"></div>
+            <div ref="government" style="height: 170px; width: 420px" v-show="activeName==4"></div>
+            <div ref="yosho" style="height: 170px; width: 420px" v-show="activeName==5"></div>
+            <div ref="family" style="height: 170px; width: 420px" v-show="activeName==6"></div>
           </div>
           <div ref="innovation" style="height: 150px; width: 400px" v-show="activeName==1"></div>
           <div ref="develop" style="height: 150px; width: 400px" v-show="activeName==2"></div>
@@ -252,28 +262,39 @@
             <div class="fullBoreBar"  style="margin-top:10px">
               <div>
                 <div class="fullBoreBar">
-                  <div class="intelligence">人工智能</div>
-                  <div class="technology">科创人才</div>
+                  <div class="intelligence" @click="borderClick(1)" :class="{borderColor:clickBorder==1}">人工智能</div>
+                  <div class="technology" @click="borderClick(2)" :class="{technologyColor:clickBorder==2}">科创人才</div>
                 </div>
                 
                 <div class="fullBoreBar">
-                  <div class="capabilities">云能力</div>
+                  <div class="capabilities" @click="borderClick(3)" :class="{capabilitiesColor:clickBorder==3}">云能力</div>
                   <div>
-                    <p class="big">大数据</p>
-                    <p  class="safety">网络安全</p>
+                    <p class="big" @click="borderClick(4)" :class="{bigColor:clickBorder==4}">大数据</p>
+                    <p  class="safety" @click="borderClick(5)" :class="{safetyColor:clickBorder==5}">网络安全</p>
                   </div>
-                  <div  class="Internet">物联网</div>
+                  <div  class="Internet" @click="borderClick(6)" :class="{InternetColor:clickBorder==6}">物联网</div>
                 </div>
               </div>
               <div>
                 <p class="intelligent">人工智能</p>
                 <div class="artificial">
                   <span class="leftFullWr" style="margin:10px 0 0 5px">实有</span>
-                  <span class="number" style="margin-left:40px">465<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==1">465<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==2">455<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==3">445<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==4">435<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==5">425<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==6">415<span class="result">人</span></span>
                 </div>
                 <div class="artificial" >
                   <span class="leftFullWr" style="margin:10px 0 0 5px">在岗</span>
-                  <span class="number"  style="margin-left:40px">433<span class="result">人</span></span>
+                  <!-- <span class="number"  style="margin-left:40px">433<span class="result">人</span></span> -->
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==1">435<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==2">415<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==3">405<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==4">385<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==5">375<span class="result">人</span></span>
+                  <span class="number" style="margin-left:40px" v-if="clickBorder==6">365<span class="result">人</span></span>
                 </div>
               </div>
             </div>
@@ -293,6 +314,9 @@ export default {
       clickColor: 1,
       processColor: 1,
       teamColor:  1,
+      clickBorder: 1,
+      list: ['全员劳产率','科创人才占比','人工成本利润率','人均创收'],
+      timer: null,
     };
   },
   computed: {
@@ -311,6 +335,9 @@ export default {
     },
   },
   mounted() {
+      this.timer=setInterval(()=>{
+            this.getData()
+        },30000)
       this.monthlyData();      // 人员总量
       this.totalTeam();        // 学历    
       this.ageBar();           // 年龄
@@ -331,8 +358,23 @@ export default {
       this.subordinatesPie();
       this.smartPie()         // 智慧沃商
       this.homeEngineerPie()  // 智慧家庭
+      this.customerRateLine() // 客户收入覆盖率
+      this.opportunityLine()  // 商机转化率
+      this.humanNumBar()      // 人均商机数
+      this.visitsNumBar()     // 人均客户拜访数
+      this.attendanceLine()   // 考勤达标率
+      this.certificationLine()// 认证通过率
+      this.salaryBar()        // 薪酬绩效
   },
+  beforeDestroy(){
+         // 每次切换排行板块时清除上一次的定时器,如果不清除的话切换页面定时器就会失效。切换时间就会有问题
+         window.clearInterval(this.timer)
+         this.timer=null
+    },
   methods: {
+    getData(){
+              // 这里请求参数根据自己实际去请求
+        },
     // 关键人才
     keyTalent(index){
         this.activeName = index;
@@ -341,12 +383,18 @@ export default {
     marketingClick(index){
       this.clickColor = index
     },
+    borderClick(index){
+      this.clickBorder = index
+      // if(this.clickBorder == 1){
+      //   this.borderColor = '1px dashed #FFD52E';
+      // }
+    },
     // 营销过程
     processClick(index){
       this.processColor = index
     },
     // 团队管理
-    teamClick(){
+    teamClick(index){
       this.teamColor = index
     },
     // 人员总量
@@ -773,6 +821,98 @@ export default {
               myChart.resize();
             });
     },
+    // 客户收入覆盖率
+    customerRateLine () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["customerRate"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 40,
+          y: 25,
+          x2: 5,
+          // y2: 25,
+        //   top: '20%',
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          
+          // boundaryGap: true,
+          data: [
+            "金\n融\n科\n技",
+            "云\n网\n生\n态",
+            "现\n代\n服\n务",
+            "交\n通\n物\n流",
+            "智\n慧\n城\n市",
+            "智\n能\n制\n造",
+            "教\n育\n医\n疗"
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 100,
+          axisLabel: {
+            show: true,
+            interval: "auto",
+            formatter: "{value}%",
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            
+            data: [80, 50, 60, 55, 60, 80, 70],
+            type: "line",
+            symbol: "circle",
+            symbolSize: 10,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 10,
+                color: "#5CFAA9"
+              },
+            },
+            lineStyle: {
+              color: "#5CFAA9",
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
     // 商机
      businessLine () {
       //初始化容器
@@ -782,7 +922,99 @@ export default {
         grid: {
           x: 40,
           y: 25,
-          x2: -5,
+          x2: 10,
+          // y2: 25,
+        //   top: '20%',
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          
+          // boundaryGap: true,
+          data: [
+            "金\n融\n科\n技",
+            "云\n网\n生\n态",
+            "现\n代\n服\n务",
+            "交\n通\n物\n流",
+            "智\n慧\n城\n市",
+            "智\n能\n制\n造",
+            "教\n育\n医\n疗"
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 100,
+          axisLabel: {
+            show: true,
+            interval: "auto",
+            formatter: "{value}%",
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            
+            data: [80, 50, 60, 55, 60, 80, 70],
+            type: "line",
+            symbol: "circle",
+            symbolSize: 10,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 10,
+                color: "#5CFAA9"
+              },
+            },
+            lineStyle: {
+              color: "#5CFAA9",
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 商机转化率
+     opportunityLine () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["opportunityRate"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 40,
+          y: 25,
+          x2: 10,
           // y2: 25,
         //   top: '20%',
           borderWidth: 1,
@@ -874,7 +1106,185 @@ export default {
         grid: {
           x: 35,
           y: 25,
-          x2: -5,
+          x2: 5,
+          // y2: 25,
+        //   top: '20%',
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "金\n融\n科\n技",
+            "云\n网\n生\n态",
+            "现\n代\n服\n务",
+            "交\n通\n物\n流",
+            "智\n慧\n城\n市",
+            "智\n能\n制\n造",
+            "教\n育\n医\n疗"
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340, 360, 380, 370],
+            type: "bar",
+            barMaxWidth: 10,
+            showBackground: true,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#FF5CA3" },
+                  { offset: 1, color: "#9263DF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+      // 人均商机数
+     humanNumBar () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["humanNum"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: 5,
+          // y2: 25,
+        //   top: '20%',
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "金\n融\n科\n技",
+            "云\n网\n生\n态",
+            "现\n代\n服\n务",
+            "交\n通\n物\n流",
+            "智\n慧\n城\n市",
+            "智\n能\n制\n造",
+            "教\n育\n医\n疗"
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340, 360, 380, 370],
+            type: "bar",
+            barMaxWidth: 10,
+            showBackground: true,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#FF5CA3" },
+                  { offset: 1, color: "#9263DF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+     // 人均客户拜访数
+     visitsNumBar () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["visitsNum"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: 5,
           // y2: 25,
         //   top: '20%',
           borderWidth: 1,
@@ -963,7 +1373,7 @@ export default {
         grid: {
           x: 40,
           y: 25,
-          x2: -5,
+          x2: 5,
           // y2: 25,
         //   top: '20%',
           borderWidth: 1,
@@ -1046,6 +1456,279 @@ export default {
         myChart.resize();
       });
     },
+    // 考勤达标率
+    attendanceLine () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["attendance"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 40,
+          y: 25,
+          x2: 5,
+          // y2: 25,
+        //   top: '20%',
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          
+          // boundaryGap: true,
+          data: [
+            "金\n融\n科\n技",
+            "云\n网\n生\n态",
+            "现\n代\n服\n务",
+            "交\n通\n物\n流",
+            "智\n慧\n城\n市",
+            "智\n能\n制\n造",
+            "教\n育\n医\n疗"
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 100,
+          axisLabel: {
+            show: true,
+            interval: "auto",
+            formatter: "{value}%",
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            
+            data: [80, 50, 60, 55, 60, 80, 70],
+            type: "line",
+            symbol: "circle",
+            symbolSize: 10,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 10,
+                color: "#5CFAA9"
+              },
+            },
+            lineStyle: {
+              color: "#5CFAA9",
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 认证通过率
+    certificationLine () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["certification"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 40,
+          y: 25,
+          x2: 5,
+          // y2: 25,
+        //   top: '20%',
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          
+          // boundaryGap: true,
+          data: [
+            "金\n融\n科\n技",
+            "云\n网\n生\n态",
+            "现\n代\n服\n务",
+            "交\n通\n物\n流",
+            "智\n慧\n城\n市",
+            "智\n能\n制\n造",
+            "教\n育\n医\n疗"
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 100,
+          axisLabel: {
+            show: true,
+            interval: "auto",
+            formatter: "{value}%",
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            
+            data: [80, 50, 60, 55, 60, 80, 70],
+            type: "line",
+            symbol: "circle",
+            symbolSize: 10,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 10,
+                color: "#5CFAA9"
+              },
+            },
+            lineStyle: {
+              color: "#5CFAA9",
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
+    // 薪酬绩效
+    salaryBar () {
+      //初始化容器
+      let myChart = this.$echarts.init(this.$refs["salary"]);
+      //初始化图标配置选项
+      let option = {
+        grid: {
+          x: 35,
+          y: 25,
+          x2: 5,
+          // y2: 25,
+        //   top: '20%',
+          borderWidth: 1,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "金\n融\n科\n技",
+            "云\n网\n生\n态",
+            "现\n代\n服\n务",
+            "交\n通\n物\n流",
+            "智\n慧\n城\n市",
+            "智\n能\n制\n造",
+            "教\n育\n医\n疗"
+          ],
+          axisLabel: {
+            show: true,
+
+            interval: 0,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#506BFF',
+                width: 0.1,
+            }
+          },
+        },
+        yAxis: {
+          type: "value",
+          max: 500,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              fontSize: 12,
+              color: "#8ED8FF",
+            },
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 0.5,
+              color: "#506BFF",
+            },
+          },
+        },
+        series: [
+          {
+            // name: "合同制",
+            data: [380, 350, 320, 340, 360, 380, 370],
+            type: "bar",
+            barMaxWidth: 10,
+            showBackground: true,
+            smooth: true,
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 10,
+              },
+              normal: {
+                barBorderRadius: 2,
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#FF5CA3" },
+                  { offset: 1, color: "#9263DF" },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      //设置成功
+      myChart.setOption(option);
+      window.addEventListener("resize", () => {
+        myChart.resize();
+      });
+    },
     // 智慧沃商工程师
     yoshoBar () {
       //初始化容器
@@ -1055,7 +1738,7 @@ export default {
         grid: {
           x: 35,
           y: 25,
-          x2: -5,
+          x2: 10,
           borderWidth: 1,
         },
         xAxis: {
@@ -1096,6 +1779,7 @@ export default {
           max: 500,
           axisLabel: {
             show: true,
+            interval: 0,
             textStyle: {
               fontSize: 12,
               color: "#8ED8FF",
@@ -1148,7 +1832,7 @@ export default {
         grid: {
           x: 35,
           y: 25,
-          x2: -5,
+          x2: 10,
           borderWidth: 1,
         },
         xAxis: {
@@ -1240,7 +1924,7 @@ export default {
         grid: {
           x: 35,
           y: 25,
-          x2: -5,
+          x2: 10,
           borderWidth: 1,
         },
         xAxis: {
@@ -1323,7 +2007,7 @@ export default {
         grid: {
           x: 35,
           y: 25,
-          x2: -5,
+          x2: 10,
           borderWidth: 1,
         },
         xAxis: {
@@ -1405,7 +2089,8 @@ export default {
         grid: {
           x: 35,
           y: 25,
-          x2: -5,
+          x2: 10,
+          // y2: 15,
           borderWidth: 1,
         },
         xAxis: {
@@ -1492,7 +2177,7 @@ export default {
         grid: {
           x: 35,
           y: 25,
-          x2: -5,
+          x2: 10,
           borderWidth: 1,
         },
         xAxis: {
@@ -1736,6 +2421,7 @@ export default {
           textStyle: {
             color: "#FFFFFF",
             fontSize: 12,
+            // padding: [0,20,0,0]
           },
         },
         series: [
@@ -2066,18 +2752,18 @@ export default {
 }
 .headTime{
   font-family: Helvetica;
-  font-size: 40px;
+  font-size: 36px;
   color: #FFFFFF;
   letter-spacing: 0;
   text-align: center;
   font-weight: 400;
   margin-right:20px;
-  margin-top:20px
+  margin-top:10px
 }
 .headLogo{
     height: 42px;
     width: 75px;
-    margin-left: 20px;
+    margin-left: 30px;
     background: url("../assets/hrFront/logo.png") 100%;
 }
 .fullBoreBar{
@@ -2247,7 +2933,7 @@ export default {
   margin-bottom: 35px;
   .headHr {
     font-family: PingFangSC-Semibold;
-    font-size: 36px;
+    font-size: 32px;
     color: #fff ;
     letter-spacing: 0;
     text-align: center;
@@ -2342,11 +3028,11 @@ export default {
   letter-spacing: 0;
   text-align: right;
   line-height: 60px;
-  margin-left: 35px;
+  margin-left: 45px;
 }
 
 .rightRank{
-  font-family: DS-DIGII;
+  font-family: LcdD;
   font-size: 60px;
   color: #1FFF39;
   letter-spacing: 0;
@@ -2363,7 +3049,7 @@ export default {
     line-height: 14px;
   }
   .south{
-    margin-left:530px;
+    margin-left:540px;
     font-family: PingFangSC-Regular;
     font-size: 14px;
     color: #FFFFFF;
@@ -2475,7 +3161,7 @@ export default {
 .intelligence{
   width: 147px;
   height: 49px;
-  border: 1px dashed #FFD52E;
+  // border: 1px dashed #FFD52E;
   border-radius: 6px;
   // border-radius: 6px;
   color: #FFD52E;
@@ -2484,52 +3170,81 @@ export default {
   line-height: 48px;
   margin-left: 10px;
 }
+.borderColor{
+  border: 1px dashed #FFD52E;
+}
 .technology{
   font-family: PingFangSC-Medium;
   font-size: 22px;
   color: #E6A3D3;
   letter-spacing: 0;
-  line-height: 48px;
+  line-height: 40px;
   text-align: center;
-  height: 49px;
+  height: 40px;
   margin-left: 5px;
+  width: 100px;
   // margin: 10px ;
 }
+.technologyColor{
+  border: 1px dashed #E6A3D3;
+}
 .capabilities{
-  width: 28px;
-  height: 64px;
+  width: 35px;
+  height: 84px;
   font-family: PingFangSC-Medium;
   font-size: 28px;
   color: #0447FF;
   letter-spacing: 0;
   line-height: 28px;
   margin: 10px 0 0 10px;
+  text-align: center;
+}
+.capabilitiesColor{
+  border: 1px dashed #0447FF;
+  height: 86px;
 }
 .big{
   font-family: PingFangSC-Medium;
   font-size: 40px;
   color: #14EEFF;
   letter-spacing: 0;
-  line-height: 40px;
-  margin: 10px 0 10px 0px;
+  line-height: 55px;
+  margin: 5px 5px 10px 0px;
+  height: 55px;
+  width: 130px;
+  text-align: center;
+}
+.bigColor{
+  border: 1px dashed #14EEFF;
+  // height: 45x;
 }
 .safety{
   font-family: PingFangSC-Medium;
   font-size: 30px;
   color: #FFD52E;
   letter-spacing: 0;
-  line-height: 30px;
-  margin: 10px 0 0px 5px;
+  line-height: 40px;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+  margin: -5px 0 0px 0px;
+}
+.safetyColor{
+  border: 1px dashed #FFD52E;
 }
 .Internet{
-  height: 70px;
-  width: 34px;
+  height: 100px;
+  width: 40px;
   font-family: PingFangSC-Medium;
   font-size: 34px;
   color: #4553DC;
   letter-spacing: 0;
   line-height: 32.6px;
-  margin-top: 0px;
+  // margin-top: 0px;
+  text-align: center;
+}
+.InternetColor{
+  border: 1px dashed #4553DC;
 }
 .intelligent{
   font-family: PingFangSC-Medium;
@@ -2538,4 +3253,7 @@ export default {
   letter-spacing: 0;
   line-height: 16px;
 }
+// .intelligentColor{
+//   border: 1px dashed #FFFFFF;
+// }
 </style>
